@@ -1,27 +1,24 @@
 import { Link, Route, Routes } from "react-router-dom";
 import Nav from "./Nav";
+import Logo from "./Logo";
 import Products from "./Products";
-import HoverImgs from "./HoverImgs";
-
+import ShowPage from "./ShowPage";
 // main app requires 2 separate sub-apps: store and checkout
 
 function App() {
   return (
     <div>
-      <main className="flex flex-col items-center">
-        <header className="flex w-full flex-col items-center py-16 gap-12">
+      <main className="flex flex-col items-center gap-16 my-16">
+        <header className="flex w-full flex-col items-center gap-12">
           <Link to="/">
-            <HoverImgs
-              paths={["../imgs/logo.png", "../imgs/logo-red.png"]}
-              alt="blood incantation logo"
-              className="max-w-80"
-            />
+            <Logo />
           </Link>
+          <Nav />
         </header>
-        <Nav />
         <Routes>
           <Route path="/" element={<Products />} />
-          <Route path="/products/:productCategory" element={<Products />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="products/:id" element={<ShowPage />} />
         </Routes>
       </main>
     </div>

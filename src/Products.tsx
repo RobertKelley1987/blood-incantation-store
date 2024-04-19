@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { allProducts } from "./data";
 import Product from "./Product";
+import { Product as ProductType } from "./types";
 
 function Products() {
-  const [products, setProducts] = useState(allProducts);
+  const [products, setProducts] = useState<ProductType[]>(allProducts);
   const [isLoading, setIsLoading] = useState(true);
-  const { productCategory } = useParams();
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category");
 
   useEffect(() => {
-    if (productCategory) {
+    if (category) {
       const filtered = allProducts.filter(
-        (product) => product.category === productCategory
+        (product) => product.category === category
       );
       setProducts(filtered);
     }
@@ -22,17 +24,19 @@ function Products() {
       setProducts(allProducts);
       window.scrollTo(0, 0);
     };
-  }, [productCategory]);
+  }, [category]);
 
-  return isLoading ? (
-    <p>"Loading..."</p>
-  ) : (
-    <div className="grid grid-cols-3 gap-12 max-w-screen-lg">
-      {products.map((product) => (
-        <Product key={product.id} product={product} />
-      ))}
-    </div>
-  );
+  const renderList = () => {
+    return (
+      <div className="grid grid-cols-3 gap-12 max-w-screen-lg px-12">
+        {products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
+      </div>
+    );
+  };
+
+  return isLoading ? <p>Loading...</p> : renderList();
 }
 
 export default Products;

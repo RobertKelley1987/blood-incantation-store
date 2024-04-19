@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     colors: {
       blood: "rgb(var(--blood-red) / <alpha-value>)",
+      black: "rgb(0, 0, 0 / <alpha-value>)",
     },
     extend: {
       fontFamily: {

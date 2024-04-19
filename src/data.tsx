@@ -1,3 +1,5 @@
+import type { Product } from "./types";
+
 export const tShirts = [
   {
     id: "blood-incantation-logo-tour-2022-t-shirt",
@@ -634,7 +636,7 @@ export const patches = [
   },
 ];
 
-export const allProducts = [
+export const allProducts: Product[] = [
   ...tShirts,
   ...longsleeves,
   ...hoodies,

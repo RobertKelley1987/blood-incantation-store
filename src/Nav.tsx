@@ -12,7 +12,7 @@ const PRODUCT_CATEGORIES = [
 function Nav() {
   return (
     <nav>
-      <ul className="flex gap-12 font-sans uppercase">
+      <ul className="flex gap-12 font-sans uppercase font-semibold">
         {PRODUCT_CATEGORIES.map((category) => (
           <NavLink category={category} />
         ))}

@@ -1,4 +1,4 @@
-import { Link, useLocation, matchPath } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 type Category = {
   lowercase: string;
@@ -10,21 +10,22 @@ type NavLinkProps = {
 };
 
 function NavLink({ category }: NavLinkProps) {
-  // Get params from current location
-  const location = useLocation();
-  const match = matchPath("/products/:selected", location.pathname);
-  const params = match?.params;
+  // Get search params from current location
+  const { search } = useLocation();
 
   // Lowercase and uppercase versions of category
   const { lowercase, capitalized } = category;
 
   // Function to add red text color if nav-link is selected
-  const isRed = () =>
-    params?.selected === lowercase ? "text-blood" : undefined;
+  const addRedText = () =>
+    search.includes(`category=${lowercase}`) ? "text-blood" : undefined;
 
   return (
     <li>
-      <Link to={`/products/${lowercase}`} className={isRed()}>
+      <Link
+        to={`/products?category=${lowercase}`}
+        className={`hover:text-blood ${addRedText()}`}
+      >
         {capitalized}
       </Link>
     </li>
