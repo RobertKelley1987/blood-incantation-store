@@ -1,4 +1,4 @@
-import type { Product } from "./types";
+import type { Product, Apparel, Music } from "./types";
 
 export const tShirts = [
   {
@@ -398,7 +398,13 @@ export const vinyl = [
     category: "vinyl",
     productType: "LP",
     artist: "Blood Incantation",
-    imgs: ["blood-incantation_starspawn-lp.jpg"],
+    imgs: [
+      "blood-incantation_starspawn-lp_1.jpg",
+      "blood-incantation_starspawn-lp_2.jpg",
+      "blood-incantation_starspawn-lp_3.jpg",
+      "blood-incantation_starspawn-lp_4.jpg",
+      "blood-incantation_starspawn-lp_5.jpg",
+    ],
     productName: "Starspawn",
     price: 21.99,
     dateAdded: new Date(2016, 7, 13),
@@ -513,7 +519,7 @@ export const cds = [
     category: "cds",
     productType: "CD",
     artist: "Blood Incantation",
-    imgs: ["blood-incantation_starspawn-lp.jpg"],
+    imgs: ["blood-incantation_starspawn-lp_1.jpg"],
     productName: "Starspawn",
     price: 14.99,
     dateAdded: new Date(2016, 7, 13),
@@ -547,7 +553,10 @@ export const cds = [
     category: "cds",
     productType: "CD",
     artist: "Blood Incantation",
-    imgs: ["blood-incantation_hidden-history-lp_1.jpg"],
+    imgs: [
+      "blood-incantation_hidden-history-lp_1.jpg",
+      "blood-incantation_hidden-history-cd_2.jpg",
+    ],
     productName: "Hidden History of the Human Race",
     price: 15.99,
     dateAdded: new Date(2019, 10, 22),
@@ -574,7 +583,10 @@ export const cds = [
     category: "cds",
     productType: "CD",
     artist: "Blood Incantation",
-    imgs: ["blood-incantation_timewave-zero-lp.jpg"],
+    imgs: [
+      "blood-incantation_timewave-zero-lp.jpg",
+      "blood-incantation_timewave-zero-cd_2.jpg",
+    ],
     productName: "Timewave Zero",
     price: 18.99,
     dateAdded: new Date(2022, 0, 2),
@@ -644,3 +656,6 @@ export const allProducts: Product[] = [
   ...cds,
   ...patches,
 ];
+
+export const apparel: Apparel[] = [...tShirts, ...longsleeves, ...hoodies];
+export const music: Music[] = [...vinyl, ...cds];

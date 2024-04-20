@@ -24,7 +24,7 @@ function NavLink({ category }: NavLinkProps) {
     <li>
       <Link
         to={`/products?category=${lowercase}`}
-        className={`hover:text-blood ${addRedText()}`}
+        className={`text-nowrap hover:text-blood ${addRedText()}`}
       >
         {capitalized}
       </Link>

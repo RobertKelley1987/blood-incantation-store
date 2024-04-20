@@ -2,8 +2,12 @@ import { Link, Route, Routes } from "react-router-dom";
 import Nav from "./Nav";
 import Logo from "./Logo";
 import Products from "./Products";
-import ShowPage from "./ShowPage";
+import ApparelShowPage from "./ApparelShowPage";
+import MusicShowPage from "./MusicShowPage";
 // main app requires 2 separate sub-apps: store and checkout
+
+const APPAREL_PGS = ["/hoodies/:id", "/longsleeves/:id", "/t-shirts/:id"];
+const MUSIC_PGS = ["/vinyl/:id", "/cds/:id"];
 
 function App() {
   return (
@@ -18,7 +22,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="/products" element={<Products />} />
-          <Route path="products/:id" element={<ShowPage />} />
+          {APPAREL_PGS.map((path) => (
+            <Route path={path} element={<ApparelShowPage />} />
+          ))}
+          {MUSIC_PGS.map((path) => (
+            <Route path={path} element={<MusicShowPage />} />
+          ))}
         </Routes>
       </main>
     </div>

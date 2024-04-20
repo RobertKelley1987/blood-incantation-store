@@ -7,12 +7,12 @@ type ProductProps = {
 };
 
 function Product({ product }: ProductProps) {
-  const { id, productName, productType, price, imgs } = product;
+  const { id, productName, productType, price, imgs, category } = product;
   const shortDesc = `"${productName}" ${productType}`;
 
   return (
     <Link
-      to={`/products/${id}`}
+      to={`/${category}/${id}`}
       className="hover:text-blood flex flex-col items-center gap-4"
     >
       <ProductImgs
