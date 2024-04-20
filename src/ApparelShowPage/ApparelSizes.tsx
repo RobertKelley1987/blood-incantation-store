@@ -1,4 +1,4 @@
-import type { Size as SizeType } from "./types";
+import type { Size as SizeType } from "../types";
 
 const APPAREL_SIZES: SizeType[] = ["Small", "Medium", "Large", "Extra Large"];
 

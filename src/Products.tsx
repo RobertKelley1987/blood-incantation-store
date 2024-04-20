@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { allProducts } from "./data";
 import Product from "./Product";
+import Loading from "./components/Loading";
 import { Product as ProductType } from "./types";
 
 function Products() {
@@ -36,7 +37,7 @@ function Products() {
     );
   };
 
-  return isLoading ? <p>Loading...</p> : renderList();
+  return <Loading isLoading={isLoading}>{renderList()}</Loading>;
 }
 
 export default Products;

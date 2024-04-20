@@ -2,12 +2,17 @@ import { Link, Route, Routes } from "react-router-dom";
 import Nav from "./Nav";
 import Logo from "./Logo";
 import Products from "./Products";
-import ApparelShowPage from "./ApparelShowPage";
-import MusicShowPage from "./MusicShowPage";
+import ApparelShowPage from "./ApparelShowPage/ApparelShowPage";
+import MusicShowPage from "./MusicShowPage/MusicShowPage";
+import AccessoryShowPage from "./AccessoryShowPage/AccessoryShowPage";
+import ErrorPage from "./ErrorPage";
+
 // main app requires 2 separate sub-apps: store and checkout
 
-const APPAREL_PGS = ["/hoodies/:id", "/longsleeves/:id", "/t-shirts/:id"];
-const MUSIC_PGS = ["/vinyl/:id", "/cds/:id"];
+const APPAREL = ["hoodies", "longsleeves", "t-shirts"];
+const MUSIC = ["vinyl", "cds"];
+const ACCESSORIES = ["patches"];
+const ERROR_ROUTES = ["/404", "*"];
 
 function App() {
   return (
@@ -22,11 +27,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="/products" element={<Products />} />
-          {APPAREL_PGS.map((path) => (
-            <Route path={path} element={<ApparelShowPage />} />
+          {APPAREL.map((category) => (
+            <Route path={`/${category}/:id`} element={<ApparelShowPage />} />
           ))}
-          {MUSIC_PGS.map((path) => (
-            <Route path={path} element={<MusicShowPage />} />
+          {MUSIC.map((category) => (
+            <Route path={`/${category}/:id`} element={<MusicShowPage />} />
+          ))}
+          {ACCESSORIES.map((category) => (
+            <Route path={`/${category}/:id`} element={<AccessoryShowPage />} />
+          ))}
+          {ERROR_ROUTES.map((path) => (
+            <Route path={path} element={<ErrorPage />} />
           ))}
         </Routes>
       </main>

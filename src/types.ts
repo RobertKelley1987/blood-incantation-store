@@ -17,4 +17,13 @@ export type Music = Product & {
   tracklist: string[];
 };
 
+export type Accessory = Product & {
+  desc: string[];
+};
+
+export type CartItem = {
+  product: Apparel | Music | Accessory;
+  qty: number;
+};
+
 export type Size = "Small" | "Medium" | "Large" | "Extra Large";

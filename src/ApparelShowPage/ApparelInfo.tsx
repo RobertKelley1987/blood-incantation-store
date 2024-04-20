@@ -1,4 +1,4 @@
-import { Apparel } from "./types";
+import { Apparel } from "../types";
 
 export type ApparelInfoProps = {
   product: Apparel;

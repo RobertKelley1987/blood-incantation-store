@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { useProduct } from "./hooks/useProduct";
-import { apparel } from "./data";
-import ShowPage from "./ShowPage";
+import { Navigate } from "react-router-dom";
+import { useProduct } from "../hooks/useProduct";
+import { apparel } from "../data";
+import ShowPage from "../ShowPage";
 import ApparelSizes from "./ApparelSizes";
 import ApparelInfo from "./ApparelInfo";
-import type { Apparel, Size } from "./types";
+import Loading from "../components/Loading";
+import type { Apparel, Size } from "../types";
 
 function ApparelShowPage() {
   const { product, isLoading } = useProduct<Apparel>(apparel);
@@ -19,15 +21,18 @@ function ApparelShowPage() {
 
   const renderInfo = () => (product ? <ApparelInfo product={product} /> : null);
 
-  return (
-    product && (
+  const renderShowPage = () =>
+    !product ? (
+      <Navigate to="/404" />
+    ) : (
       <ShowPage
         product={product}
         renderOptions={renderSizes}
         renderInfo={renderInfo}
       />
-    )
-  );
+    );
+
+  return <Loading isLoading={isLoading}>{renderShowPage()}</Loading>;
 }
 
 export default ApparelShowPage;
