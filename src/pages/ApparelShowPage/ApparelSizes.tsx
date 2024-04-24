@@ -1,4 +1,4 @@
-import type { Size as SizeType } from "../types";
+import type { Size as SizeType } from "../../types";
 
 const APPAREL_SIZES: SizeType[] = ["Small", "Medium", "Large", "Extra Large"];
 
@@ -31,7 +31,7 @@ function ApparelSizes(props: ApparelSizesProps) {
   return (
     <div className="flex gap-3 flex-wrap">
       {APPAREL_SIZES.map((size) => (
-        <Size size={size} {...props} />
+        <Size key={size} size={size} {...props} />
       ))}
     </div>
   );

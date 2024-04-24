@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { useProduct } from "../hooks/useProduct";
-import { apparel } from "../data";
-import ShowPage from "../ShowPage";
+import { useProduct } from "../../hooks/useProduct";
+import { apparel } from "../../data";
+import ShowPage from "../ShowPage/ShowPage";
 import ApparelSizes from "./ApparelSizes";
 import ApparelInfo from "./ApparelInfo";
-import Loading from "../components/Loading";
-import type { Apparel, Size } from "../types";
+import Loading from "../../components/Loading";
+import type { Apparel, Size } from "../../types";
 
 function ApparelShowPage() {
   const { product, isLoading } = useProduct<Apparel>(apparel);
@@ -29,6 +29,7 @@ function ApparelShowPage() {
         product={product}
         renderOptions={renderSizes}
         renderInfo={renderInfo}
+        selectedSize={selectedSize}
       />
     );
 

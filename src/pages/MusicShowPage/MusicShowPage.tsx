@@ -1,10 +1,10 @@
 import { Navigate } from "react-router-dom";
-import { useProduct } from "../hooks/useProduct";
-import { music } from "../data";
-import ShowPage from "../ShowPage";
+import { useProduct } from "../../hooks/useProduct";
+import { music } from "../../data";
+import ShowPage from "../ShowPage/ShowPage";
 import Tracklist from "./Tracklist";
-import Loading from "../components/Loading";
-import type { Music } from "../types";
+import Loading from "../../components/Loading";
+import type { Music } from "../../types";
 
 function MusicShowPage() {
   const { product, isLoading } = useProduct<Music>(music);

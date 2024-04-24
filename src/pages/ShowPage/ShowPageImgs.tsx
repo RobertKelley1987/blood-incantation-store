@@ -30,6 +30,7 @@ function ShowPageImgs({ imgs, alt }: ShowPageImgsProps) {
       <div className={`grid justify-center gap-6 ${calcGridColumns()}`}>
         {imgs.map((img) => (
           <img
+            key={img}
             onClick={() => setSelectedImg(img)}
             className={`${configOpacity(
               img

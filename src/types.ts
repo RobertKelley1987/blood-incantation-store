@@ -21,9 +21,12 @@ export type Accessory = Product & {
   desc: string[];
 };
 
+export type CartProduct = Apparel | Music | Accessory;
+
 export type CartItem = {
   product: Apparel | Music | Accessory;
   qty: number;
+  size?: Size;
 };
 
 export type Size = "Small" | "Medium" | "Large" | "Extra Large";

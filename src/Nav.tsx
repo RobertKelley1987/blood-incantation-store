@@ -14,7 +14,7 @@ function Nav() {
     <nav>
       <ul className="flex gap-12 font-sans uppercase font-semibold">
         {PRODUCT_CATEGORIES.map((category) => (
-          <NavLink category={category} />
+          <NavLink key={category.lowercase} category={category} />
         ))}
       </ul>
     </nav>
