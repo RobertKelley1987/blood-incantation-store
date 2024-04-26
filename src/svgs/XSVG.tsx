@@ -1,9 +1,13 @@
-function RemoveItemSVG() {
+type XSVGProps = {
+  size: string;
+};
+
+function XSVG({ size }: XSVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -17,4 +21,4 @@ function RemoveItemSVG() {
   );
 }
 
-export default RemoveItemSVG;
+export default XSVG;

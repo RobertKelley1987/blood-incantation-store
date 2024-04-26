@@ -5,7 +5,7 @@ function Logo() {
 
   return (
     <div
-      className="grid max-w-80"
+      className="grid max-w-20"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >

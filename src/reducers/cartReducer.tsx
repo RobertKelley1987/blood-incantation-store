@@ -29,8 +29,6 @@ function productsAreEqual(
   selectedProduct: CartProduct,
   selectedSize?: Size
 ) {
-  console.log(cartItem.size);
-  console.log(selectedSize);
   return (
     cartItem.product.id === selectedProduct.id && cartItem.size === selectedSize
   );
@@ -39,7 +37,7 @@ function productsAreEqual(
 export function cartReducer(state: State, action: Action) {
   const { items } = state;
   const { product, qty, size } = action;
-  const revisedItems = [...items];
+  let updatedItems: CartItem[] | null = null;
 
   // Index of selected product in the cart
   const productIndex = items.findIndex((item) =>
@@ -48,33 +46,45 @@ export function cartReducer(state: State, action: Action) {
 
   switch (action.type) {
     case "ADD_ITEM":
+      updatedItems = [...items];
+
       // If item is found in cart, increment qty
       if (productIndex !== -1) {
-        revisedItems[productIndex].qty += qty;
+        updatedItems[productIndex].qty += qty;
       } else {
         // Otherwise, add new item
-        revisedItems.push({ product, qty, size });
+        updatedItems.push({ product, qty, size });
       }
       // Return state with updated total qty and value
-      return updateState(revisedItems);
+      return updateState(updatedItems);
     case "INCREMENT_ITEM":
+      updatedItems = [...items];
+
       // If item is not in cart, do nothing
       if (productIndex === -1) return state;
 
       // Otherwise, increment found item in cart
-      ++revisedItems[productIndex].qty;
+      ++updatedItems[productIndex].qty;
 
       // Return state with updated total qty and value
-      return updateState(revisedItems);
+      return updateState(updatedItems);
     case "DECREMENT_ITEM":
       // If item is not in cart, do nothing
       if (productIndex === -1) return state;
 
-      // Otherwise, decrement found item in cart
-      revisedItems[productIndex].qty -= 1;
+      // If qty of selected item is 1, remove it
+      if (items[productIndex].qty === 1) {
+        updatedItems = items.filter(
+          (item) => !productsAreEqual(item, product, size)
+        );
+      } else {
+        // Otherwise, decrement qty of item in cart
+        updatedItems = [...items];
+        updatedItems[productIndex].qty -= 1;
+      }
 
       // Return state with updated total qty and value
-      return updateState(revisedItems);
+      return updateState(updatedItems);
     case "REMOVE_ITEM":
       // If item is not in cart, do nothing
       if (productIndex === -1) return state;

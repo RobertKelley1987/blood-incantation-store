@@ -1,3 +1,4 @@
+import { MIN_ITEM_QTY, MAX_ITEM_QTY } from "../../constants";
 import ProductQty from "../../ProductQty";
 
 type ShowPageQtyProps = {
@@ -6,8 +7,8 @@ type ShowPageQtyProps = {
 };
 
 function ShowPageQty({ qty, setQty }: ShowPageQtyProps) {
-  const increment = () => setQty((prev) => ++prev);
-  const decrement = () => setQty((prev) => --prev);
+  const increment = () => qty < MAX_ITEM_QTY && setQty((prev) => ++prev);
+  const decrement = () => qty > MIN_ITEM_QTY && setQty((prev) => --prev);
 
   return (
     <div className="flex flex-col gap-3">

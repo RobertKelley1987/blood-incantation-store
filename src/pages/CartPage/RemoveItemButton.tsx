@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import RemoveItemSVG from "../../RemoveItemSVG";
+import XSVG from "../../svgs/XSVG";
 import { Apparel, Music, Accessory, Size } from "../../types";
 
 type RemoveItemButtonProps = {
@@ -15,8 +15,8 @@ function RemoveItemButton({ product, qty, size }: RemoveItemButtonProps) {
     dispatch({ type: "REMOVE_ITEM", product, qty, size });
 
   return (
-    <button onClick={handleClick}>
-      <RemoveItemSVG />
+    <button onClick={handleClick} className="hover:text-blood h-min">
+      <XSVG size="24" />
     </button>
   );
 }

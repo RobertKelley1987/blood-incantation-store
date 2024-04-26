@@ -3,8 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     colors: {
-      blood: "rgb(var(--blood-red) / <alpha-value>)",
-      black: "rgb(0, 0, 0 / <alpha-value>)",
+      blood: "rgb(var(--blood-red))",
+      black: "#000000",
+      white: "#FFFFFF",
     },
     extend: {
       fontFamily: {

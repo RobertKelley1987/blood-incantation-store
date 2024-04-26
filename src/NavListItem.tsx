@@ -5,26 +5,28 @@ type Category = {
   capitalized: string;
 };
 
-type NavLinkProps = {
+type NavListItemProps = {
   category: Category;
+  handleClick: () => void;
 };
 
-function NavLink({ category }: NavLinkProps) {
+function NavListItem({ category, handleClick }: NavListItemProps) {
   // Get search params from current location
   const { search } = useLocation();
+  const selected = search.slice(search.indexOf("=") + 1);
 
   // Lowercase and uppercase versions of category
   const { lowercase, capitalized } = category;
 
-  // Function to add red text color if nav-link is selected
-  const addRedText = () =>
-    search.includes(`category=${lowercase}`) ? "text-blood" : undefined;
+  // Add red text if this category os selected
+  const redText = selected === lowercase ? "text-blood" : "";
 
   return (
     <li>
       <Link
         to={`/products?category=${lowercase}`}
-        className={`text-nowrap hover:text-blood ${addRedText()}`}
+        className={`text-nowrap hover:text-blood uppercase ${redText}`}
+        onClick={handleClick}
       >
         {capitalized}
       </Link>
@@ -32,4 +34,4 @@ function NavLink({ category }: NavLinkProps) {
   );
 }
 
-export default NavLink;
+export default NavListItem;
