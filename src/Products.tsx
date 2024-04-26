@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
 import Product from "./Product";
 import Loading from "./components/Loading";
-import Logo from "./Logo";
-import { useProducts } from "./hooks/useProducts";
+import type { Product as ProductType } from "./types";
 
-function Products() {
-  const { products, isLoading } = useProducts();
+type ProductsProps = {
+  products: ProductType[];
+  isLoading: boolean;
+};
 
+function Products({ products, isLoading }: ProductsProps) {
   const renderProducts = () => {
     return (
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-12 max-w-screen-lg px-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-12 max-w-screen-lg">
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}

@@ -5,6 +5,7 @@ export type Product = {
   productType: string;
   imgs: string[];
   category: string;
+  dateAdded: Date;
 };
 
 export type Apparel = Product & {
@@ -30,3 +31,5 @@ export type CartItem = {
 };
 
 export type Size = "Small" | "Medium" | "Large" | "Extra Large";
+
+export type SortOption = "New to Old" | "Old to New" | "A to Z" | "Z to A";

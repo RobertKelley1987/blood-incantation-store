@@ -37,7 +37,7 @@ function ShowPage({
     <div>
       <button
         onClick={() => navigate(-1)}
-        className="px-12 flex items-center uppercase gap-3 mb-12 hover:text-blood"
+        className="px-12 flex items-center uppercase gap-3 mb-6 hover:text-blood"
       >
         <BackArrowSVG size="24" />
         <span>Back</span>

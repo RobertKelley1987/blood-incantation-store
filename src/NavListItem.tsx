@@ -24,7 +24,7 @@ function NavListItem({ category, handleClick }: NavListItemProps) {
   return (
     <li>
       <Link
-        to={`/products?category=${lowercase}`}
+        to={`/collections/${lowercase}`}
         className={`text-nowrap hover:text-blood uppercase ${redText}`}
         onClick={handleClick}
       >

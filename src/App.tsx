@@ -23,8 +23,11 @@ function App() {
       <MenuContextProvider>
         <Routes>
           <Route path="/" element={<Store />}>
-            <Route index element={<ProductsPage />} />
-            <Route path="/products" element={<ProductsPage />} />
+            <Route index element={<ProductsPage headingText="All Items" />} />
+            <Route
+              path="/collections/:productType"
+              element={<ProductsPage />}
+            />
             {APPAREL.map((category) => (
               <Route
                 key={category}

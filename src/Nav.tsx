@@ -10,11 +10,13 @@ const NAV_STYLES = {
   closed: "left-[-9999px]",
 };
 
-function Nav() {
-  const { state } = useContext(CartContext);
-  const { totalQty } = state;
+type NavProps = {
+  dropdownOpen: boolean;
+  setDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+function Nav({ dropdownOpen, setDropdownOpen }: NavProps) {
+  const totalQty = useContext(CartContext).state.totalQty;
   const { menuOpen, setMenuOpen } = useContext(MenuContext);
   const menuStyle = menuOpen ? "open" : "closed";
 
