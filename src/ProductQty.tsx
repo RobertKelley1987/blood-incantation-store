@@ -15,13 +15,13 @@ const WRAPPER_STYLES = {
 };
 
 const BTN_STYLES = {
-  big: "min-w-12 px-6 py-3 border hover:bg-blood w-auto",
-  small: "min-w-12 px-3 py-3 border hover:bg-blood text-sm",
+  big: "min-w-12 px-6 py-3 border border-black hover:bg-blood w-auto",
+  small: "min-w-12 px-3 py-3 border border-black hover:bg-blood text-sm",
 };
 
 const QTY_STYLES = {
-  big: "min-w-24 py-3 inline-block text-center border-y w-full md:w-auto",
-  small: "min-w-12 py-3 inline-block text-center border-y",
+  big: "min-w-24 py-3 inline-block text-center border-y border-black w-full md:w-auto",
+  small: "min-w-12 py-3 inline-block text-center border-y border-black",
 };
 
 function ProductQty({ qty, decrement, increment, style }: ProductQtyProps) {

@@ -1,4 +1,5 @@
-import { useProducts } from "./hooks/useProducts";
+import { useProducts } from "../../hooks/useProducts";
+import Loading from "../../components/Loading";
 import Products from "./Products";
 import SortSelector from "./SortSelector";
 
@@ -16,7 +17,9 @@ function ProductsPage({ headingText }: ProductsPageProps) {
         {productType ? productType : headingText}
       </h1>
       <SortSelector sortOption={sortOption} setSortOption={setSortOption} />
-      <Products products={products} isLoading={isLoading} />
+      <Loading isLoading={isLoading}>
+        <Products products={products} />
+      </Loading>
     </div>
   );
 }

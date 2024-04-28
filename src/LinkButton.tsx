@@ -9,7 +9,7 @@ function LinkButton({ text, path }: LinkButtonProps) {
   return (
     <Link
       to={path}
-      className="uppercase min-w-12 px-6 py-3 border text-center hover:bg-blood"
+      className="uppercase min-w-12 px-6 py-3 border border-black text-center hover:bg-blood"
     >
       {text}
     </Link>

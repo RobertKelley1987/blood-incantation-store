@@ -8,7 +8,7 @@ function StoreHeader() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="border-b fixed md:relative z-10 bg-white flex w-full justify-between items-center p-6 h-[60px]">
+    <header className="border-b border-black fixed md:relative z-10 bg-white flex w-full justify-between items-center p-6 h-[60px]">
       <MenuButton />
       <Link onClick={() => setDropdownOpen(false)} to="/">
         <Logo />

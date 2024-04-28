@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
 import Checkout from "./Checkout";
-import ProductsPage from "./ProductsPage";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ApparelShowPage from "./pages/ApparelShowPage/ApparelShowPage";
 import MusicShowPage from "./pages/MusicShowPage/MusicShowPage";
 import AccessoryShowPage from "./pages/AccessoryShowPage/AccessoryShowPage";
@@ -54,15 +54,7 @@ function App() {
               <Route key={path} path={path} element={<ErrorPage />} />
             ))}
           </Route>
-          <Route path="/checkout" element={<Checkout />}>
-            <Route
-              index
-              path="shipping-address"
-              element={<p>shipping address</p>}
-            />
-            <Route path="shipping" element={<p>shipping</p>} />
-            <Route path="*" element={<ErrorPage />} />
-          </Route>
+          <Route path="/checkout" element={<Checkout />}></Route>
         </Routes>
       </MenuContextProvider>
     </CartContextProvider>

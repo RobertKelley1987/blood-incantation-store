@@ -1,5 +1,5 @@
-import ChevronSVG from "./svgs/ChevronSVG";
-import type { SortOption } from "./types";
+import ChevronSVG from "../../svgs/ChevronSVG";
+import type { SortOption } from "../../types";
 
 const OPTION_ELEMENTS: SortOptionElement[] = [
   {
@@ -54,8 +54,9 @@ function SortSelector({ sortOption, setSortOption }: SortSelectorProps) {
 
   return (
     <div className="w-min grid justify-items-end items-center">
+      <ChevronSVG className="row-start-1 col-start-1 mr-2" />
       <select
-        className="appearance-none py-2 pl-2 pr-[32px] justify-self-end row-start-1 col-start-1 hover:cursor-pointer border hover:border-blood active:border-blood focus:outline-none"
+        className="appearance-none bg-white bg-opacity-0 border border-black hover:border-blood py-2 pl-2 pr-[32px] justify-self-end row-start-1 col-start-1 hover:cursor-pointer active:border-blood focus:outline-none"
         onChange={handleChange}
         value={sortOption}
       >
@@ -67,7 +68,6 @@ function SortSelector({ sortOption, setSortOption }: SortSelectorProps) {
           );
         })}
       </select>
-      <ChevronSVG className="row-start-1 col-start-1 mr-2" />
     </div>
   );
 }
