@@ -35,20 +35,6 @@ export function useProducts() {
   const { productType } = useParams();
 
   useEffect(() => {
-    if (products) {
-      setIsLoading(false);
-    }
-  }, [products]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const compareFn = COMPARE_FNS[sortOption];
-    const sorted = [...products.sort(compareFn)];
-    setProducts(sorted);
-  }, [sortOption]);
-
-  useEffect(() => {
-    setIsLoading(true);
     let filtered = [...allProducts];
 
     // If user is in a product collection, filter by that product type
@@ -58,9 +44,18 @@ export function useProducts() {
       );
     }
 
-    setProducts(filtered);
-    setSortOption("New to Old");
+    // Sort products by selected sort option
+    const compareFn = COMPARE_FNS[sortOption];
+    const sorted = [...filtered.sort(compareFn)];
+    setProducts(sorted);
+
     window.scrollTo(0, 0);
+    setIsLoading(false);
+  }, [productType, sortOption]);
+
+  // Reset sort option to default when user navigates to another collection
+  useEffect(() => {
+    setSortOption("New to Old");
   }, [productType]);
 
   return { productType, products, isLoading, sortOption, setSortOption };

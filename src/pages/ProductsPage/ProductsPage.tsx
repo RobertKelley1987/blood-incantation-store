@@ -12,8 +12,8 @@ function ProductsPage({ headingText }: ProductsPageProps) {
     useProducts();
 
   return (
-    <div className="flex flex-col px-12 gap-12 items-end">
-      <h1 className="w-full text-7xl font-semibold text-center uppercase">
+    <div className="flex flex-col basis-full grow px-6 sm:px-12 items-end w-full max-w-screen-lg gap-12">
+      <h1 className="w-full text-5xl sm:text-7xl font-semibold text-center uppercase">
         {productType ? productType : headingText}
       </h1>
       <SortSelector sortOption={sortOption} setSortOption={setSortOption} />

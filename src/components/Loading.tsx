@@ -4,7 +4,14 @@ type LoadingProps = {
 };
 
 function Loading({ isLoading, children }: LoadingProps) {
-  return isLoading ? <span>Loading...</span> : children;
+  const renderLoading = () => {
+    return (
+      <div className="text-center w-full basis-full grow shrink-0 mt-12">
+        Loading...
+      </div>
+    );
+  };
+  return isLoading ? renderLoading() : children;
 }
 
 export default Loading;

@@ -27,23 +27,28 @@ function ShowPage({
   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
   const { imgs, productName, productType, price } = product;
-  const shortDesc = `"${productName}" ${productType}`;
+
+  const shortDesc = (
+    <span>
+      {productName} <span className="whitespace-nobreak">{productType}</span>
+    </span>
+  );
 
   // Render optional elements
   const options = renderOptions ? renderOptions() : null;
   const info = renderInfo ? renderInfo() : null;
 
   return (
-    <div>
+    <div className="px-6 sm:px-12">
       <button
         onClick={() => navigate(-1)}
-        className="px-12 flex items-center uppercase gap-3 mb-6 hover:text-blood"
+        className="flex items-center uppercase gap-3 mb-6 hover:text-blood"
       >
         <BackArrowSVG size="24" />
         <span>Back</span>
       </button>
-      <div className="max-w-screen-lg grid md:grid-cols-2 px-12 gap-12">
-        <ShowPageImgs imgs={imgs} alt={shortDesc} />
+      <div className="max-w-screen-lg grid md:grid-cols-2 gap-12">
+        <ShowPageImgs imgs={imgs} alt={`${productName} ${productType}`} />
         <div className="flex flex-col gap-6">
           <h1 className="text-4xl uppercase font-semibold">{shortDesc}</h1>
           <p className="text-2xl">${price}</p>

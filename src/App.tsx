@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
-import Checkout from "./Checkout";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ApparelShowPage from "./pages/ApparelShowPage/ApparelShowPage";
 import MusicShowPage from "./pages/MusicShowPage/MusicShowPage";
@@ -54,7 +54,7 @@ function App() {
               <Route key={path} path={path} element={<ErrorPage />} />
             ))}
           </Route>
-          <Route path="/checkout" element={<Checkout />}></Route>
+          <Route path="/checkout" element={<CheckoutPage />}></Route>
         </Routes>
       </MenuContextProvider>
     </CartContextProvider>

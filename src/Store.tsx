@@ -13,10 +13,10 @@ function Store() {
   const styleOption = menuOpen ? "open" : "closed";
 
   return (
-    <div className="flex flex-col mb-12 ">
+    <div className="flex flex-col min-h-screen grow">
       <StoreHeader />
       <main
-        className={`flex flex-col items-center gap-16 ${MARGIN[styleOption]} md:mt-12`}
+        className={`flex flex-col basis-full grow items-center gap-16 ${MARGIN[styleOption]} md:mt-12 md:mb-12`}
       >
         <Outlet />
       </main>

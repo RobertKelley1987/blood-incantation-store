@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ProductImgs from "./ProductImgs";
-import type { Product as ProductType } from "./types";
+import type { Product as ProductType } from "../../types";
 
 type ProductProps = {
   product: ProductType;

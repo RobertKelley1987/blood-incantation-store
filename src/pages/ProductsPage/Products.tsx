@@ -1,4 +1,4 @@
-import Product from "../../Product";
+import Product from "./Product";
 import type { Product as ProductType } from "../../types";
 
 type ProductsProps = {
@@ -7,7 +7,7 @@ type ProductsProps = {
 
 function Products({ products }: ProductsProps) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-12 max-w-screen-lg">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}

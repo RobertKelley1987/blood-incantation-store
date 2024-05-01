@@ -13,27 +13,24 @@ function CartItem({ item }: CartItemProps) {
   const itemTotalVal = (product.price * qty).toFixed(2);
 
   return (
-    <div className="flex justify-start items-start gap-6">
-      <div className="flex gap-6">
-        <div className="flex items-start">
+    <div className="grid grid-cols-[1fr_2fr] gap-6 items-start">
+      <div className="flex items-center pt-2">
+        <img src={`../imgs/${product.imgs[0]}`} alt={imgAlt}></img>
+      </div>
+      <div className="flex flex-col items-start gap-3 basis-full">
+        <div className="w-full flex items-start justify-between gap-3">
+          <h2 className="text-2xl font-semibold">
+            "{product.productName}"{" "}
+            <span className="whitespace-nowrap">{product.productType}</span>
+          </h2>
           <RemoveItemButton product={product} qty={qty} size={size} />
         </div>
-        <div className="flex items-center w-32">
-          <img src={`../imgs/${product.imgs[0]}`} alt={imgAlt}></img>
-        </div>
-      </div>
-      <div className="flex flex-col md:flex-row items-start gap-6 basis-full">
-        <div className="flex flex-col gap-1 basis-full">
-          <h2>
-            "{product.productName}" {product.productType}
-          </h2>
-          {size && <span className="block">Size: {size}</span>}
-          <span className="block">${product.price}</span>
-        </div>
-        <div className="flex items-center gap-6">
-          <CartPageQty product={product} qty={qty} size={size} />
-          <span className="hidden md:flex text-end">${itemTotalVal}</span>
-        </div>
+        {size && <span className="block">Size: {size}</span>}
+        <span className="block text-xl">${product.price}</span>
+        <CartPageQty product={product} qty={qty} size={size} />
+        <span className="hidden md:flex text-end text-xl">
+          <span className="font-semibold mr-2">Total: </span> ${itemTotalVal}
+        </span>
       </div>
     </div>
   );
