@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
+import MenuContextProvider from "./context/MenuContext";
+import Store from "./Store";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ApparelShowPage from "./pages/ApparelShowPage/ApparelShowPage";
@@ -7,8 +9,7 @@ import MusicShowPage from "./pages/MusicShowPage/MusicShowPage";
 import AccessoryShowPage from "./pages/AccessoryShowPage/AccessoryShowPage";
 import CartPage from "./pages/CartPage/CartPage";
 import ErrorPage from "./ErrorPage";
-import Store from "./Store";
-import MenuContextProvider from "./context/MenuContext";
+import PmtIntentError from "./PmtIntentError";
 
 // main app requires 2 separate sub-apps: store and checkout
 
@@ -55,6 +56,8 @@ function App() {
             ))}
           </Route>
           <Route path="/checkout" element={<CheckoutPage />}></Route>
+          <Route path="/checkout/success" element={<div>Success!</div>}></Route>
+          <Route path="/checkout/error" element={<PmtIntentError />}></Route>
         </Routes>
       </MenuContextProvider>
     </CartContextProvider>

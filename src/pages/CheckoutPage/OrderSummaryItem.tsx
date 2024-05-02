@@ -14,10 +14,10 @@ function OrderSummaryItem({ item }: OrderSummaryItemProps) {
         <span className="block uppercase">
           "{product.productName}" {product.productType}
         </span>
-        {size && <span className="block">Size: {size}</span>}
-        <span>Qty: {qty}</span>
+        {size && <span className="block text-sm">Size: {size}</span>}
+        <span className="block text-sm">Qty: {qty}</span>
       </div>
-      <span className="block">${product.price * qty}</span>
+      <span className="text-end">${product.price * qty}</span>
     </div>
   );
 }

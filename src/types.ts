@@ -33,3 +33,9 @@ export type CartItem = {
 export type Size = "Small" | "Medium" | "Large" | "Extra Large";
 
 export type SortOption = "New to Old" | "Old to New" | "A to Z" | "Z to A";
+
+export type ShippingOption = {
+  name: string;
+  cost: number;
+  days: number;
+};

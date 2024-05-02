@@ -16,7 +16,7 @@ function Store() {
     <div className="flex flex-col min-h-screen grow">
       <StoreHeader />
       <main
-        className={`flex flex-col basis-full grow items-center gap-16 ${MARGIN[styleOption]} md:mt-12 md:mb-12`}
+        className={`flex flex-col basis-full grow items-center gap-16 ${MARGIN[styleOption]} md:mt-12 mb-12`}
       >
         <Outlet />
       </main>
