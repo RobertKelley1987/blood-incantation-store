@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { CartItem } from "../types";
 
@@ -8,7 +9,7 @@ export function useUpdatePmtIntent(
   shippingCost: number,
   pmtIntentId: string
 ) {
-  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   // Provide ids and qtys of cart items for price lookup in backend
   const items = cartItems.map((item) => {
@@ -16,7 +17,7 @@ export function useUpdatePmtIntent(
   });
 
   useEffect(() => {
-    // If there is no id to look up the pmt intent, do nothing
+    // If no id is provided to look up the pmt intent, do nothing
     if (!pmtIntentId) {
       return;
     }
@@ -31,12 +32,10 @@ export function useUpdatePmtIntent(
       });
 
       if (error) {
-        setError(error.message);
+        navigate("/checkout/error");
       }
     };
 
     updatePmtIntent();
   }, [shippingCost]);
-
-  return { updatePmtIntentError: error };
 }

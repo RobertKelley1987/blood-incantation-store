@@ -1,8 +1,8 @@
 type XSVGProps = {
-  size: string;
+  size?: string;
 };
 
-function XSVG({ size }: XSVGProps) {
+function XSVG({ size = "24" }: XSVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

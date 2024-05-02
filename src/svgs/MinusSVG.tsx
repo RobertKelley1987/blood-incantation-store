@@ -1,4 +1,4 @@
-function PlusSVG() {
+function MinusSVG() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,4 +16,4 @@ function PlusSVG() {
   );
 }
 
-export default PlusSVG;
+export default MinusSVG;

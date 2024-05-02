@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
 import MenuContextProvider from "./context/MenuContext";
+import ShippingContextProvider from "./context/ShippingContext";
 import Store from "./Store";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";

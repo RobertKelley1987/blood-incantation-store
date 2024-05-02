@@ -1,15 +1,10 @@
+import { useContext } from "react";
+import { ShippingContext } from "../../context/ShippingContext";
 import { SHIPPING_OPTIONS } from "../../constants";
-import { ShippingOption } from "../../types";
 
-type ShippingMethodProps = {
-  shippingMethod: ShippingOption;
-  setShippingMethod: React.Dispatch<React.SetStateAction<ShippingOption>>;
-};
+function ShippingMethod() {
+  const { shippingMethod, setShippingMethod } = useContext(ShippingContext);
 
-function ShippingMethod({
-  shippingMethod,
-  setShippingMethod,
-}: ShippingMethodProps) {
   return (
     <div>
       <h2 className="mb-3 font-semibold uppercase">Shipping Method</h2>

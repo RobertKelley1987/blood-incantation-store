@@ -1,8 +1,8 @@
 type BackArrowSVGProps = {
-  size: string;
+  size?: string;
 };
 
-function BackArrowSVG({ size }: BackArrowSVGProps) {
+function BackArrowSVG({ size = "24" }: BackArrowSVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -12,7 +12,8 @@ function OrderSummaryItem({ item }: OrderSummaryItemProps) {
       <img src={`../imgs/${product.imgs[0]}`} />
       <div>
         <span className="block uppercase">
-          "{product.productName}" {product.productType}
+          "{product.productName}"{" "}
+          <span className="whitespace-nowrap">{product.productType}</span>
         </span>
         {size && <span className="block text-sm">Size: {size}</span>}
         <span className="block text-sm">Qty: {qty}</span>

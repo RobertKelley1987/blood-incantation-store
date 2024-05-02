@@ -2,7 +2,7 @@ import { Fragment, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
 import EmptyCartMessage from "./EmptyCartMessage";
-import LinkButton from "../../LinkButton";
+import LinkButton from "../../components/LinkButton";
 
 function CartPage() {
   const { state } = useContext(CartContext);

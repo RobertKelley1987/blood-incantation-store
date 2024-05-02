@@ -1,5 +1,5 @@
 type ChevronSVGProps = {
-  className: string;
+  className?: string;
 };
 
 function ChevronSVG({ className }: ChevronSVGProps) {

@@ -1,34 +1,24 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { ShippingContext } from "../../context/ShippingContext";
+import { CartContext } from "../../context/CartContext";
 import { useCreatePmtIntent } from "../../hooks/useCreatePmtIntent";
 import { useUpdatePmtIntent } from "../../hooks/useUpdatePmtIntent";
 import CheckoutForm from "./CheckoutForm";
-import type { CartItem, ShippingOption } from "../../types";
 import type { StripeElementsOptions } from "@stripe/stripe-js";
+import type { CartItem, ShippingOption } from "../../types";
+import { useContext } from "react";
 
 // Create stripe instance outside element per Stripe docs
 const stripePromise = loadStripe(
   "pk_test_51H2228AezT8y8XpmM6CCcLHEDtUl2QtPrNuOu2zL7ZLc6tD6nw782RJVD9RDqZ3BO00PkPKXUhA7WWWV3QiWc3tP00gWzkKhI9"
 );
 
-type CheckoutProps = {
-  cartItems: CartItem[];
-  shippingMethod: ShippingOption;
-  setShippingMethod: React.Dispatch<React.SetStateAction<ShippingOption>>;
-};
-
-function Checkout({
-  cartItems,
-  shippingMethod,
-  setShippingMethod,
-}: CheckoutProps) {
-  const { clientSecret, pmtIntentId, createPmtIntentError } =
-    useCreatePmtIntent(cartItems, shippingMethod.cost);
-  const { updatePmtIntentError } = useUpdatePmtIntent(
-    cartItems,
-    shippingMethod.cost,
-    pmtIntentId
-  );
+function Checkout() {
+  const items = useContext(CartContext).state.items;
+  const shipping = useContext(ShippingContext).shippingMethod.cost;
+  const { clientSecret, pmtIntentId } = useCreatePmtIntent(items, shipping);
+  useUpdatePmtIntent(items, shipping, pmtIntentId);
 
   const options: StripeElementsOptions = {
     clientSecret,
@@ -49,12 +39,7 @@ function Checkout({
   const renderElements = (options: StripeElementsOptions) => {
     return (
       <Elements stripe={stripePromise} options={options}>
-        <CheckoutForm
-          createPmtIntentError={createPmtIntentError}
-          updatePmtIntentError={updatePmtIntentError}
-          shippingMethod={shippingMethod}
-          setShippingMethod={setShippingMethod}
-        />
+        <CheckoutForm />
       </Elements>
     );
   };

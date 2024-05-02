@@ -1,33 +1,50 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+
 import { CartContext } from "../../context/CartContext";
-import { SHIPPING_OPTIONS } from "../../constants";
+import ShippingContextProvider, {
+  ShippingContext,
+} from "../../context/ShippingContext";
+import { useDropdownStatus } from "../../hooks/useDropdownStatus";
 import Checkout from "./Checkout";
 import OrderSummary from "./OrderSummary";
+import ChevronSVG from "../../svgs/ChevronSVG";
 
 function CheckoutPage() {
-  const { state } = useContext(CartContext);
-  const [shippingMethod, setShippingMethod] = useState(SHIPPING_OPTIONS[0]);
+  const { totalValue } = useContext(CartContext).state;
+  const shipping = useContext(ShippingContext).shippingMethod.cost;
+  const { dropdownOpen, setDropdownOpen } = useDropdownStatus();
+
+  const handleClick = () => setDropdownOpen((prev) => !prev);
 
   return (
-    <div className="flex flex-col items-center gap-12 mb-12">
-      <header className="flex w-full p-6 bg-black justify-center">
-        <div className="max-w-32">
-          <img alt="Blood Incantation band logo" src="../imgs/logo-white.png" />
+    <ShippingContextProvider>
+      <div className="flex flex-col items-center gap-6 mb-12">
+        <header className="flex w-full p-6 bg-black justify-center">
+          <div className="max-w-32">
+            <img
+              alt="Blood Incantation band logo"
+              src="../imgs/logo-white.png"
+            />
+          </div>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-screen-lg">
+          <Checkout />
+          <div className="order-1 md:order-2">
+            <div
+              onClick={handleClick}
+              className="w-full max-w-screen-lg p-6 md:px-12 flex md:hidden border-b border-black justify-between hover:cursor-pointer"
+            >
+              <div className="flex gap-1">
+                <ChevronSVG className={dropdownOpen ? "rotate-180" : ""} />
+                <h2>Order Summary</h2>
+              </div>
+            </div>
+            {dropdownOpen && <OrderSummary />}
+          </div>
         </div>
-      </header>
-      <div className="grid grid-cols-2 relative w-full max-w-screen-lg px-6 sm:px-12 gap-12">
-        <Checkout
-          cartItems={state.items}
-          shippingMethod={shippingMethod}
-          setShippingMethod={setShippingMethod}
-        />
-        <OrderSummary
-          items={state.items}
-          totalValue={state.totalValue}
-          shippingCost={shippingMethod.cost}
-        />
       </div>
-    </div>
+    </ShippingContextProvider>
   );
 }
 

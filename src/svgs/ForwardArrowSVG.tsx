@@ -1,9 +1,9 @@
 type ForwardArrowSVGProps = {
-  className: string;
-  size: string;
+  className?: string;
+  size?: string;
 };
 
-function ForwardArrowSVG({ className, size }: ForwardArrowSVGProps) {
+function ForwardArrowSVG({ className, size = "24" }: ForwardArrowSVGProps) {
   return (
     <svg
       className={className}

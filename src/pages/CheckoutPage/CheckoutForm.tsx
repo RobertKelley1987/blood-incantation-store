@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useState } from "react";
 import {
   LinkAuthenticationElement,
   AddressElement,
@@ -8,7 +7,6 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import ShippingMethod from "./ShippingMethod";
-import { ShippingOption } from "../../types";
 
 type ShippingAddress = {
   name: string;
@@ -25,19 +23,9 @@ type Address = {
   postal_code: string;
 };
 
-type CheckoutFormProps = {
-  createPmtIntentError: string;
-  updatePmtIntentError: string;
-  shippingMethod: ShippingOption;
-  setShippingMethod: React.Dispatch<React.SetStateAction<ShippingOption>>;
-};
+const paddingStyles = "p-6 md:pl-12 md:pr-6 md:pt-12";
 
-function CheckoutForm({
-  createPmtIntentError,
-  updatePmtIntentError,
-  shippingMethod,
-  setShippingMethod,
-}: CheckoutFormProps) {
+function CheckoutForm() {
   const [email, setEmail] = useState("");
   const [shippingAddress, setShippingAddress] =
     useState<ShippingAddress | null>(null);
@@ -45,13 +33,6 @@ function CheckoutForm({
   const [error, setError] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (createPmtIntentError || updatePmtIntentError) {
-      navigate("/checkout/error");
-    }
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -80,7 +61,10 @@ function CheckoutForm({
 
   const renderForm = () => {
     return (
-      <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
+      <form
+        onSubmit={handleSubmit}
+        className={`${paddingStyles} order-2 md:order-1 w-full flex flex-col gap-6`}
+      >
         <div>
           <h2 className="mb-3 font-semibold uppercase">Contact</h2>
           <LinkAuthenticationElement
@@ -94,10 +78,7 @@ function CheckoutForm({
             options={{ mode: "shipping" }}
           />
         </div>
-        <ShippingMethod
-          shippingMethod={shippingMethod}
-          setShippingMethod={setShippingMethod}
-        />
+        <ShippingMethod />
         <div>
           <h2 className="mb-3 font-semibold uppercase">Payment</h2>
           <PaymentElement />

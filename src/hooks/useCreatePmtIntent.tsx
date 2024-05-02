@@ -30,7 +30,7 @@ export function useCreatePmtIntent(
       const { error, clientSecret, pmtIntentId } = data;
 
       if (error) {
-        setError(error.message);
+        navigate("/checkout/error");
       } else {
         setClientSecret(clientSecret);
         setPmtIntentId(pmtIntentId);

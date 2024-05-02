@@ -1,10 +1,10 @@
-import LinkButton from "../../LinkButton";
+import LinkButton from "../../components/LinkButton";
 
 function EmptyCartMessage() {
   return (
-    <div className="flex flex-col gap-9">
-      <p>You don't have any items in your cart.</p>
-      <LinkButton path="/" text="Continue Shopping" />
+    <div className="flex flex-col items-center gap-9">
+      <p className="text-center">You don't have any items in your cart.</p>
+      <LinkButton path="/" text="Continue Shopping" className="w-max-content" />
     </div>
   );
 }
