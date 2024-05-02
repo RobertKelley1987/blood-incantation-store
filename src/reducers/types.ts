@@ -30,4 +30,8 @@ export type Action =
       product: Apparel | Accessory | Music;
       qty: number;
       size?: Size;
+    }
+  | {
+      type: "SET_CART";
+      items: CartItem[];
     };

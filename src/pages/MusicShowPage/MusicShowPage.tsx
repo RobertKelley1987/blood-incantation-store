@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useProduct } from "../../hooks/useProduct";
-import { music } from "../../data";
+import { music } from "../../db";
 import ShowPage from "../ShowPage/ShowPage";
 import Tracklist from "./Tracklist";
 import Loading from "../../components/Loading";

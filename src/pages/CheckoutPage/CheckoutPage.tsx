@@ -1,31 +1,23 @@
-import { useContext } from "react";
-
-import { CartContext } from "../../context/CartContext";
-import ShippingContextProvider, {
-  ShippingContext,
-} from "../../context/ShippingContext";
+import { Link } from "react-router-dom";
+import ShippingContextProvider from "../../context/ShippingContext";
 import { useDropdownStatus } from "../../hooks/useDropdownStatus";
+import Logo from "../../Logo";
 import Checkout from "./Checkout";
 import OrderSummary from "./OrderSummary";
 import ChevronSVG from "../../svgs/ChevronSVG";
 
 function CheckoutPage() {
-  const { totalValue } = useContext(CartContext).state;
-  const shipping = useContext(ShippingContext).shippingMethod.cost;
   const { dropdownOpen, setDropdownOpen } = useDropdownStatus();
 
   const handleClick = () => setDropdownOpen((prev) => !prev);
 
   return (
     <ShippingContextProvider>
-      <div className="flex flex-col items-center gap-6 mb-12">
+      <div className="flex flex-col items-center mb-12">
         <header className="flex w-full p-6 bg-black justify-center">
-          <div className="max-w-32">
-            <img
-              alt="Blood Incantation band logo"
-              src="../imgs/logo-white.png"
-            />
-          </div>
+          <Link to="/">
+            <Logo width="32" color="white" />
+          </Link>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-screen-lg">

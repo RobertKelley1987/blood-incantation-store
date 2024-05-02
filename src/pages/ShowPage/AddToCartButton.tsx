@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import Button from "../../Button";
+import Button from "../../components/Button";
 import type { Accessory, Apparel, Music, Size } from "../../types";
 
 type AddToCartButtonProps = {

@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useProduct } from "../../hooks/useProduct";
-import { accessories } from "../../data";
+import { accessories } from "../../db";
 import ShowPage from "../ShowPage/ShowPage";
 import AccessoryDescription from "./AccessoryDescription";
 import Loading from "../../components/Loading";

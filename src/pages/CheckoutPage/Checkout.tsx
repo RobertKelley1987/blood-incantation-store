@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { ShippingContext } from "../../context/ShippingContext";
@@ -6,8 +7,6 @@ import { useCreatePmtIntent } from "../../hooks/useCreatePmtIntent";
 import { useUpdatePmtIntent } from "../../hooks/useUpdatePmtIntent";
 import CheckoutForm from "./CheckoutForm";
 import type { StripeElementsOptions } from "@stripe/stripe-js";
-import type { CartItem, ShippingOption } from "../../types";
-import { useContext } from "react";
 
 // Create stripe instance outside element per Stripe docs
 const stripePromise = loadStripe(
@@ -15,10 +14,12 @@ const stripePromise = loadStripe(
 );
 
 function Checkout() {
-  const items = useContext(CartContext).state.items;
+  const { items } = useContext(CartContext).state;
   const shipping = useContext(ShippingContext).shippingMethod.cost;
   const { clientSecret, pmtIntentId } = useCreatePmtIntent(items, shipping);
   useUpdatePmtIntent(items, shipping, pmtIntentId);
+
+  console.log(items);
 
   const options: StripeElementsOptions = {
     clientSecret,

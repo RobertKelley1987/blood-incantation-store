@@ -4,13 +4,13 @@ import { MAX_ITEM_QTY } from "../../constants";
 import ProductQty from "../../ProductQty";
 import type { Accessory, Apparel, Music, Size } from "../../types";
 
-type CartPageQtyProps = {
+type CartItemQtyProps = {
   product: Apparel | Music | Accessory;
   qty: number;
   size?: Size;
 };
 
-function CartPageQty({ product, qty, size }: CartPageQtyProps) {
+function CartItemQty({ product, qty, size }: CartItemQtyProps) {
   const { dispatch } = useContext(CartContext);
 
   const increment = () =>
@@ -29,4 +29,4 @@ function CartPageQty({ product, qty, size }: CartPageQtyProps) {
   );
 }
 
-export default CartPageQty;
+export default CartItemQty;

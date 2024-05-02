@@ -1,4 +1,3 @@
-import { MIN_ITEM_QTY, MAX_ITEM_QTY } from "./constants";
 import PlusSVG from "./svgs/PlusSVG";
 import MinusSVG from "./svgs/MinusSVG";
 

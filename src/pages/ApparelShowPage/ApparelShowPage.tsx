@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useProduct } from "../../hooks/useProduct";
-import { apparel } from "../../data";
+import { apparel } from "../../db";
 import ShowPage from "../ShowPage/ShowPage";
 import ApparelSizes from "./ApparelSizes";
 import ApparelInfo from "./ApparelInfo";

@@ -1,5 +1,12 @@
 import type { State, Action } from "./types";
-import type { CartItem, CartProduct, Size } from "../types";
+import type {
+  CartItem,
+  CartProduct,
+  Size,
+  Apparel,
+  Music,
+  Accessory,
+} from "../types";
 
 // Helper to calculate total number of items in cart
 function calcCartQty(cart: CartItem[]) {
@@ -36,17 +43,21 @@ function productsAreEqual(
 
 export function cartReducer(state: State, action: Action) {
   const { items } = state;
-  const { product, qty, size } = action;
+  let product: Apparel | Music | Accessory;
+  let qty: number;
+  let size: Size | undefined;
   let updatedItems: CartItem[] | null = null;
-
-  // Index of selected product in the cart
-  const productIndex = items.findIndex((item) =>
-    productsAreEqual(item, product, size)
-  );
+  let productIndex;
 
   switch (action.type) {
     case "ADD_ITEM":
       updatedItems = [...items];
+      product = action.product;
+      qty = action.qty;
+      size = action.size;
+      productIndex = items.findIndex((item) =>
+        productsAreEqual(item, product, size)
+      );
 
       // If item is found in cart, increment qty
       if (productIndex !== -1) {
@@ -59,6 +70,12 @@ export function cartReducer(state: State, action: Action) {
       return updateState(updatedItems);
     case "INCREMENT_ITEM":
       updatedItems = [...items];
+      product = action.product;
+      qty = action.qty;
+      size = action.size;
+      productIndex = items.findIndex((item) =>
+        productsAreEqual(item, product, size)
+      );
 
       // If item is not in cart, do nothing
       if (productIndex === -1) return state;
@@ -69,6 +86,13 @@ export function cartReducer(state: State, action: Action) {
       // Return state with updated total qty and value
       return updateState(updatedItems);
     case "DECREMENT_ITEM":
+      product = action.product;
+      qty = action.qty;
+      size = action.size;
+      productIndex = items.findIndex((item) =>
+        productsAreEqual(item, product, size)
+      );
+
       // If item is not in cart, do nothing
       if (productIndex === -1) return state;
 
@@ -86,6 +110,13 @@ export function cartReducer(state: State, action: Action) {
       // Return state with updated total qty and value
       return updateState(updatedItems);
     case "REMOVE_ITEM":
+      product = action.product;
+      qty = action.qty;
+      size = action.size;
+      productIndex = items.findIndex((item) =>
+        productsAreEqual(item, product, size)
+      );
+
       // If item is not in cart, do nothing
       if (productIndex === -1) return state;
 
@@ -96,6 +127,8 @@ export function cartReducer(state: State, action: Action) {
 
       // Return state with updated total qty and value
       return updateState(filteredItems);
+    case "SET_CART":
+      return updateState(action.items);
     default:
       return state;
   }

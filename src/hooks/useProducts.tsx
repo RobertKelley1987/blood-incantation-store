@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { allProducts } from "../data";
+import { allProducts } from "../db";
 import type { Product, SortOption } from "../types";
 
 const COMPARE_FNS: {

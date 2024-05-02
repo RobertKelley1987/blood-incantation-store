@@ -30,7 +30,7 @@ function ShowPage({
 
   const shortDesc = (
     <span>
-      {productName} <span className="whitespace-nobreak">{productType}</span>
+      {productName} <span className="whitespace-nowrap">{productType}</span>
     </span>
   );
 
