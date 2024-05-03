@@ -1,32 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { allProducts } from "../db";
+import { COMPARE_FNS } from "../constants";
 import type { Product, SortOption } from "../types";
-
-const COMPARE_FNS: {
-  [Option in SortOption]: (a: Product, b: Product) => number;
-} = {
-  "A to Z": (a: Product, b: Product) => {
-    const nameOne = a.productName.toLowerCase();
-    const nameTwo = b.productName.toLowerCase();
-    return nameOne.localeCompare(nameTwo);
-  },
-  "Z to A": (a: Product, b: Product) => {
-    const nameOne = a.productName.toLowerCase();
-    const nameTwo = b.productName.toLowerCase();
-    return nameTwo.localeCompare(nameOne);
-  },
-  "New to Old": (a: Product, b: Product) => {
-    const dateOne = new Date(a.dateAdded).getTime();
-    const dateTwo = new Date(b.dateAdded).getTime();
-    return dateTwo - dateOne;
-  },
-  "Old to New": (a: Product, b: Product) => {
-    const dateOne = new Date(a.dateAdded).getTime();
-    const dateTwo = new Date(b.dateAdded).getTime();
-    return dateOne - dateTwo;
-  },
-};
 
 export function useProducts() {
   const [products, setProducts] = useState<Product[]>(allProducts);

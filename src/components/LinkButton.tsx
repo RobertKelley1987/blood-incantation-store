@@ -2,21 +2,21 @@ import { Link } from "react-router-dom";
 
 type LinkButtonProps = {
   text: string;
-  path: string;
-  className?: string;
+  to: string;
+  grow?: boolean;
 };
 
-function LinkButton({ text, path, className }: LinkButtonProps) {
-  // Attach any additional styles
+function LinkButton({ text, to, grow = true }: LinkButtonProps) {
+  // Attach additional styles
   let styles =
     "uppercase flex justify-center px-6 py-3 border border-black hover:bg-blood";
-  if (className) {
-    styles += " " + className;
+  if (!grow) {
+    styles += " w-max";
   }
 
   // Return link styled as button
   return (
-    <Link to={path} className={styles}>
+    <Link to={to} className={styles}>
       {text}
     </Link>
   );

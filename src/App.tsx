@@ -11,6 +11,7 @@ import AccessoryShowPage from "./pages/AccessoryShowPage/AccessoryShowPage";
 import CartPage from "./pages/CartPage/CartPage";
 import ErrorPage from "./ErrorPage";
 import PmtIntentError from "./PmtIntentError";
+import HomePage from "./HomePage";
 
 // main app requires 2 separate sub-apps: store and checkout
 
@@ -25,7 +26,11 @@ function App() {
       <MenuContextProvider>
         <Routes>
           <Route path="/" element={<Store />}>
-            <Route index element={<ProductsPage headingText="All Items" />} />
+            <Route index element={<HomePage />} />
+            <Route
+              path="/collections/all"
+              element={<ProductsPage headingText="All Items" />}
+            />
             <Route
               path="/collections/:productType"
               element={<ProductsPage />}

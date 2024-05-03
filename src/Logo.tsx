@@ -1,15 +1,15 @@
 import { useState } from "react";
 
 type LogoProps = {
-  width?: string;
+  className?: string;
   color?: string;
 };
-function Logo({ width = "16", color = "black" }: LogoProps) {
+function Logo({ className, color = "black" }: LogoProps) {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
     <div
-      className={`grid max-w-${width}`}
+      className={`grid ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >

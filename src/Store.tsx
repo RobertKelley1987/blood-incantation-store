@@ -1,22 +1,20 @@
 import { useContext } from "react";
 import { Outlet } from "react-router-dom";
+import { useScrollingUp } from "./hooks/useScrollingUp";
 import { MenuContext } from "./context/MenuContext";
 import StoreHeader from "./StoreHeader";
 
-const MARGIN = {
-  open: "mt-0",
-  closed: "mt-[116px]",
-};
-
 function Store() {
   const { menuOpen } = useContext(MenuContext);
-  const styleOption = menuOpen ? "open" : "closed";
+  const { scrollingUp } = useScrollingUp();
+  const desktopMargin = scrollingUp ? "md:mt-[116px]" : "md:mt-12";
+  const mobileMargin = menuOpen ? "mt-0" : "mt-[116px]";
 
   return (
     <div className="flex flex-col min-h-screen grow">
-      <StoreHeader />
+      <StoreHeader scrollingUp={scrollingUp} />
       <main
-        className={`flex flex-col basis-full grow items-center gap-16 ${MARGIN[styleOption]} md:mt-12 mb-12`}
+        className={`${mobileMargin} ${desktopMargin} mb-12 flex flex-col basis-full grow items-center gap-16`}
       >
         <Outlet />
       </main>

@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { CartContext } from "./context/CartContext";
+import { useContext } from "react";
 import { MenuContext } from "./context/MenuContext";
 import { Link } from "react-router-dom";
 import ShopByTypeDropdown from "./ShopByTypeDropdown";
@@ -16,7 +15,6 @@ type NavProps = {
 };
 
 function Nav({ dropdownOpen, setDropdownOpen }: NavProps) {
-  const totalQty = useContext(CartContext).state.totalQty;
   const { menuOpen, setMenuOpen } = useContext(MenuContext);
   const menuStyle = menuOpen ? "open" : "closed";
 
@@ -30,6 +28,15 @@ function Nav({ dropdownOpen, setDropdownOpen }: NavProps) {
       className={`${NAV_STYLES[menuStyle]} top-0 bg-white w-screen md:w-auto h-screen md:h-auto flex fixed md:static md:z-0`}
     >
       <ul className="p-6 md:p-0 font-sans uppercase font-semibold text-4xl md:text-base flex flex-col md:flex-row mt-[60px] md:mt-0 gap-6 md:gap-12">
+        <li>
+          <Link
+            onClick={handleClick}
+            to="/collections/all"
+            className="hover:text-blood"
+          >
+            Shop All
+          </Link>
+        </li>
         <li>
           <button
             onClick={() => setDropdownOpen((prev) => !prev)}
@@ -52,11 +59,6 @@ function Nav({ dropdownOpen, setDropdownOpen }: NavProps) {
             className="hover:text-blood"
           >
             Contact
-          </Link>
-        </li>
-        <li>
-          <Link onClick={handleClick} to="/cart" className="hover:text-blood">
-            Cart {totalQty > 0 && `(${totalQty})`}
           </Link>
         </li>
       </ul>

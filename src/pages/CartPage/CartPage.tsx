@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
 import EmptyCartMessage from "./EmptyCartMessage";
@@ -21,7 +21,7 @@ function CartPage() {
             <span className="font-bold uppercase">Subtotal</span>
             <span>${state.totalValue.toFixed(2)}</span>
           </div>
-          <LinkButton path="/checkout" text="Checkout" />
+          <LinkButton to="/checkout" text="Checkout" />
         </div>
       </div>
     );

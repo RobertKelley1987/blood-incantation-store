@@ -8,14 +8,9 @@ type ProductQtyProps = {
   style: "big" | "small";
 };
 
-const WRAPPER_STYLES = {
-  big: "",
-  small: "",
-};
-
 const BTN_STYLES = {
-  big: "min-w-12 px-6 py-3 border border-black hover:bg-blood w-auto",
-  small: "min-w-12 px-3 py-3 border border-black hover:bg-blood text-sm",
+  big: "min-w-12 py-3 border border-black hover:bg-blood w-auto px-6",
+  small: "min-w-12 py-3 border border-black hover:bg-blood text-sm px-3",
 };
 
 const QTY_STYLES = {
@@ -25,7 +20,7 @@ const QTY_STYLES = {
 
 function ProductQty({ qty, decrement, increment, style }: ProductQtyProps) {
   return (
-    <div className={`flex items-center ${WRAPPER_STYLES[style]}`}>
+    <div className="flex items-center">
       <button className={BTN_STYLES[style]} onClick={decrement}>
         <MinusSVG />
       </button>
