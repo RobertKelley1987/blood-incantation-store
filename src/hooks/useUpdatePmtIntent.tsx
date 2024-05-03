@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { CartItem } from "../types";
 
-// Hook to update the shipping cost of pmt intent in Stripe
+// Hook to update the shipping cost of pmt intent in Stripe.
 export function useUpdatePmtIntent(
   cartItems: CartItem[],
   shippingCost: number,
@@ -11,13 +11,13 @@ export function useUpdatePmtIntent(
 ) {
   const navigate = useNavigate();
 
-  // Provide ids and qtys of cart items for price lookup in backend
+  // Provide ids and qtys of cart items for price lookup in backend.
   const items = cartItems.map((item) => {
     return { id: item.product.id, qty: item.qty };
   });
 
   useEffect(() => {
-    // If no id is provided to look up the pmt intent, do nothing
+    // If no id is provided to look up the pmt intent, do nothing.
     if (!pmtIntentId) {
       return;
     }
@@ -31,6 +31,7 @@ export function useUpdatePmtIntent(
         shippingCost,
       });
 
+      // Navigate to a server error page if update fails.
       if (error) {
         navigate("/checkout/error");
       }

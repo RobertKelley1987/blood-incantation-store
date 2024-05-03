@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { useAddToCartMessage } from "../../hooks/useAddToCartMessage";
 import Button from "../../components/Button";
 import type { Accessory, Apparel, Music, Size } from "../../types";
 
@@ -11,10 +12,16 @@ type AddToCartButtonProps = {
 
 function AddToCartButton({ product, qty, size }: AddToCartButtonProps) {
   const { dispatch } = useContext(CartContext);
+  const { displayMessage, setDisplayMessage } = useAddToCartMessage();
 
-  const handleClick = () => dispatch({ type: "ADD_ITEM", product, qty, size });
+  const handleClick = () => {
+    setDisplayMessage(true);
+    dispatch({ type: "ADD_ITEM", product, qty, size });
+  };
 
-  return <Button handleClick={handleClick} text="Add To Cart" />;
+  const buttonText = displayMessage ? "Item Added!" : "Add to Cart";
+
+  return <Button handleClick={handleClick} text={buttonText} />;
 }
 
 export default AddToCartButton;

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "./context/CartContext";
-import CartSVG from "./svgs/CartSVG";
+import { CartContext } from "../context/CartContext";
+import CartSVG from "../svgs/CartSVG";
 
 // Cart link with bag svg and number of cart items
 type CartLinkProps = {

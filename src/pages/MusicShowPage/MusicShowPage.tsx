@@ -9,14 +9,14 @@ import type { Music } from "../../types";
 function MusicShowPage() {
   const { product, isLoading } = useProduct<Music>(music);
 
-  const renderTracklist = () =>
-    product ? <Tracklist tracks={product.tracklist} /> : null;
-
   const renderShowPage = () =>
     !product ? (
       <Navigate to="/404" />
     ) : (
-      <ShowPage product={product} renderInfo={renderTracklist} />
+      <ShowPage
+        product={product}
+        info={<Tracklist tracks={product.tracklist} />}
+      />
     );
 
   return <Loading isLoading={isLoading}>{renderShowPage()}</Loading>;

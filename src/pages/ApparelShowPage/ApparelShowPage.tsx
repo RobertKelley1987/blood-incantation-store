@@ -12,23 +12,19 @@ function ApparelShowPage() {
   const { product, isLoading } = useProduct<Apparel>(apparel);
   const [selectedSize, setSelectedSize] = useState<Size>("Small");
 
-  const renderSizes = () => (
-    <ApparelSizes
-      selectedSize={selectedSize}
-      setSelectedSize={setSelectedSize}
-    />
-  );
-
-  const renderInfo = () => (product ? <ApparelInfo product={product} /> : null);
-
   const renderShowPage = () =>
     !product ? (
       <Navigate to="/404" />
     ) : (
       <ShowPage
         product={product}
-        renderOptions={renderSizes}
-        renderInfo={renderInfo}
+        options={
+          <ApparelSizes
+            selectedSize={selectedSize}
+            setSelectedSize={setSelectedSize}
+          />
+        }
+        info={<ApparelInfo product={product} />}
         selectedSize={selectedSize}
       />
     );

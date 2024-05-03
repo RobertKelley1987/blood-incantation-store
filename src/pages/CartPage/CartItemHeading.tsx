@@ -1,21 +1,20 @@
 import { CartItem } from "../../types";
-import RemoveItemButton from "./RemoveItemButton";
+import { Link } from "react-router-dom";
 
 type CartItemHeadingProps = {
   item: CartItem;
 };
 
 function CartItemHeading({ item }: CartItemHeadingProps) {
-  const { product, qty, size } = item;
+  const { id, category, productName, productType } = item.product;
 
   return (
-    <div className="w-full flex items-start justify-between gap-3">
+    <Link className="hover:text-blood" to={`/${category}/${id}`}>
       <h2 className="text-2xl font-semibold">
-        {`"${product.productName}" `}
-        <span className="whitespace-nowrap">{product.productType}</span>
+        {`"${productName}" `}
+        <span className="whitespace-nowrap">{productType}</span>
       </h2>
-      <RemoveItemButton product={product} qty={qty} size={size} />
-    </div>
+    </Link>
   );
 }
 

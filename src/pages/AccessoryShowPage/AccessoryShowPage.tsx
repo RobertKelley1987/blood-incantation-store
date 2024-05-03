@@ -9,14 +9,14 @@ import type { Accessory } from "../../types";
 function AccessoryShowPage() {
   const { product, isLoading } = useProduct<Accessory>(accessories);
 
-  const renderDesc = () =>
-    product ? <AccessoryDescription desc={product.desc} /> : null;
-
   const renderShowPage = () =>
     !product ? (
       <Navigate to="/404" />
     ) : (
-      <ShowPage product={product} renderInfo={renderDesc} />
+      <ShowPage
+        product={product}
+        info={<AccessoryDescription desc={product.desc} />}
+      />
     );
 
   return <Loading isLoading={isLoading}>{renderShowPage()}</Loading>;

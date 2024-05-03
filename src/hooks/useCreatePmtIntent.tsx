@@ -4,15 +4,13 @@ import axios from "axios";
 import { CartItem } from "../types";
 
 // Hook to create a pmt intent and generate the client secret per Stripe docs.
-// Pmt intent id is tracked so the intent amount can be updated with
-// shipping cost if necessary.
+// Pmt intent id required to update shipping cost in Stripe if necessary.
 export function useCreatePmtIntent(
   cartItems: CartItem[],
   shippingCost: number
 ) {
   const [clientSecret, setClientSecret] = useState("");
   const [pmtIntentId, setPmtIntentId] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   // Provide ids and qtys of cart items for price lookup in backend
@@ -46,5 +44,5 @@ export function useCreatePmtIntent(
     }
   }, []);
 
-  return { clientSecret, pmtIntentId, createPmtIntentError: error };
+  return { clientSecret, pmtIntentId };
 }

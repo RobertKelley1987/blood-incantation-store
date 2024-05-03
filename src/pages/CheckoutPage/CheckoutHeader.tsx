@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Logo from "../../Logo";
-import CartLink from "../../CartLink";
+import Logo from "../../components/Logo";
+import CartLink from "../../components/CartLink";
 
 function CheckoutHeader() {
   return (

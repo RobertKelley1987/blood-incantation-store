@@ -1,5 +1,4 @@
 import { tShirts, longsleeves, vinyl } from "./db";
-import { COMPARE_FNS } from "./constants";
 import Products from "./pages/ProductsPage/Products";
 import LinkButton from "./components/LinkButton";
 
@@ -24,7 +23,7 @@ function HomePage() {
           </h1>
           <Products products={featuredTShirts} />
           <LinkButton
-            to="/collections/apparel"
+            to="/collections/t-shirts"
             text="Shop All T-Shirts"
             grow={false}
           />
@@ -35,7 +34,7 @@ function HomePage() {
           </h1>
           <Products products={featuredLongsleeves} />
           <LinkButton
-            to="/collections/apparel"
+            to="/collections/longsleeves"
             text="Shop All Longsleeves"
             grow={false}
           />
