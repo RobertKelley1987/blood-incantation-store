@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { pmtIntents } from "../services/pmt-intents";
 import { CartItem } from "../types";
 
 // Hook to create a pmt intent and generate the client secret per Stripe docs.
-// Pmt intent id required to update shipping cost in Stripe if necessary.
+// Return client secret, as well as pmt intent id required to update shipping
+// cost in Stripe.
+// Cart items and shipping cost of customer order required as args.
 export function useCreatePmtIntent(
   cartItems: CartItem[],
   shippingCost: number
@@ -19,12 +21,8 @@ export function useCreatePmtIntent(
   });
 
   useEffect(() => {
-    const getClientSecret = async () => {
-      const { data } = await axios.post("/pmt-intent", {
-        items,
-        shippingCost,
-      });
-
+    const createPmtIntent = async () => {
+      const { data } = await pmtIntents.create(items, shippingCost);
       const { error, clientSecret, pmtIntentId } = data;
 
       if (error) {
@@ -40,7 +38,7 @@ export function useCreatePmtIntent(
     if (items.length < 1) {
       navigate("/");
     } else {
-      getClientSecret();
+      createPmtIntent();
     }
   }, []);
 

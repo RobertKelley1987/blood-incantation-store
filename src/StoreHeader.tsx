@@ -10,11 +10,9 @@ type StoreHeaderProps = {
 };
 
 function StoreHeader({ scrollingUp }: StoreHeaderProps) {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  // Add class to make header fixed if user starts scrolling up
   let classNames =
     "border-b border-black fixed md:static z-10 bg-white flex w-full justify-between items-center p-6 h-[60px]";
-
   if (scrollingUp) {
     classNames += " md:fixed";
   }
@@ -22,10 +20,10 @@ function StoreHeader({ scrollingUp }: StoreHeaderProps) {
   return (
     <header className={classNames}>
       <MenuButton />
-      <Link onClick={() => setDropdownOpen(false)} to="/">
+      <Link to="/">
         <Logo className="max-w-16" />
       </Link>
-      <Nav dropdownOpen={dropdownOpen} setDropdownOpen={setDropdownOpen} />
+      <Nav />
       <CartLink />
     </header>
   );

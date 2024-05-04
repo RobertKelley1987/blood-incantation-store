@@ -8,6 +8,15 @@ export const SHIPPING_OPTIONS: ShippingOption[] = [
   { name: "Express", cost: 12.99, days: 2 },
 ];
 
+export const PRODUCT_CATEGORIES = [
+  { lowercase: "t-shirts", capitalized: "T-Shirts" },
+  { lowercase: "longsleeves", capitalized: "Longsleeves" },
+  { lowercase: "hoodies", capitalized: "Hoodies" },
+  { lowercase: "vinyl", capitalized: "Vinyl" },
+  { lowercase: "cds", capitalized: "CDs" },
+  { lowercase: "patches", capitalized: "Patches" },
+];
+
 export const COMPARE_FNS: {
   [Option in SortOption]: (a: Product, b: Product) => number;
 } = {

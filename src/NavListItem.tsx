@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 type Category = {
   lowercase: string;
@@ -11,21 +11,13 @@ type NavListItemProps = {
 };
 
 function NavListItem({ category, handleClick }: NavListItemProps) {
-  // Get search params from current location
-  const { search } = useLocation();
-  const selected = search.slice(search.indexOf("=") + 1);
-
-  // Lowercase and uppercase versions of category
   const { lowercase, capitalized } = category;
-
-  // Add red text if this category os selected
-  const redText = selected === lowercase ? "text-blood" : "";
 
   return (
     <li>
       <Link
         to={`/collections/${lowercase}`}
-        className={`text-nowrap hover:text-blood uppercase ${redText}`}
+        className="text-nowrap hover:text-blood uppercase"
         onClick={handleClick}
       >
         {capitalized}

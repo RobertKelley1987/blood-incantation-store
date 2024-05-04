@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function PmtIntentError() {
+function ServerError() {
   return (
     <div>
       <span>
@@ -12,4 +12,4 @@ function PmtIntentError() {
   );
 }
 
-export default PmtIntentError;
+export default ServerError;

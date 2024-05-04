@@ -1,24 +1,24 @@
 import { Route, Routes } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
 import MenuContextProvider from "./context/MenuContext";
-import ShippingContextProvider from "./context/ShippingContext";
 import Store from "./Store";
-import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+import HomePage from "./HomePage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ApparelShowPage from "./pages/ApparelShowPage/ApparelShowPage";
 import MusicShowPage from "./pages/MusicShowPage/MusicShowPage";
 import AccessoryShowPage from "./pages/AccessoryShowPage/AccessoryShowPage";
 import CartPage from "./pages/CartPage/CartPage";
-import ErrorPage from "./ErrorPage";
-import PmtIntentError from "./PmtIntentError";
-import HomePage from "./HomePage";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+import FourZeroFourPage from "./pages/FourZeroFourPage";
+import ServerError from "./ServerError";
 
 // main app requires 2 separate sub-apps: store and checkout
 
 const APPAREL = ["hoodies", "longsleeves", "t-shirts"];
 const MUSIC = ["vinyl", "cds"];
 const ACCESSORIES = ["patches"];
-const ERROR_ROUTES = ["/404", "*"];
+const NOT_FOUND_ROUTES = ["/404", "*"];
 
 function App() {
   return (
@@ -57,13 +57,15 @@ function App() {
               />
             ))}
             <Route path="/cart" element={<CartPage />} />
-            {ERROR_ROUTES.map((path) => (
-              <Route key={path} path={path} element={<ErrorPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/server-error" element={<ServerError />} />
+            {NOT_FOUND_ROUTES.map((path) => (
+              <Route key={path} path={path} element={<FourZeroFourPage />} />
             ))}
           </Route>
           <Route path="/checkout" element={<CheckoutPage />}></Route>
           <Route path="/checkout/success" element={<div>Success!</div>}></Route>
-          <Route path="/checkout/error" element={<PmtIntentError />}></Route>
+          <Route path="/checkout/error" element={<ServerError />}></Route>
         </Routes>
       </MenuContextProvider>
     </CartContextProvider>

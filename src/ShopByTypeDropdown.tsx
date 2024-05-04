@@ -1,14 +1,6 @@
 import NavListItem from "./NavListItem";
 import BackArrowSVG from "./svgs/BackArrowSVG";
-
-const PRODUCT_CATEGORIES = [
-  { lowercase: "t-shirts", capitalized: "T-Shirts" },
-  { lowercase: "longsleeves", capitalized: "Longsleeves" },
-  { lowercase: "hoodies", capitalized: "Hoodies" },
-  { lowercase: "vinyl", capitalized: "Vinyl" },
-  { lowercase: "cds", capitalized: "CDs" },
-  { lowercase: "patches", capitalized: "Patches" },
-];
+import { PRODUCT_CATEGORIES } from "./constants";
 
 type ShopByTypeDropdownProps = {
   setDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;

@@ -23,15 +23,24 @@ function Checkout() {
 
   const options: StripeElementsOptions = {
     clientSecret,
+    fonts: [
+      {
+        cssSrc:
+          "https://fonts.googleapis.com/css?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap",
+      },
+    ],
     appearance: {
       theme: "stripe",
       variables: {
+        colorPrimary: "#FFFFFF",
         fontFamily: "Public Sans, sans-serif",
         fontSizeSm: "1rem",
         spacingUnit: "0px",
         colorText: "black",
         colorTextSecondary: "black",
         borderRadius: "0px",
+        focusBoxShadow: "0px 0px 0px 0px",
+        focusOutline: "1px solid black",
       },
     },
     loader: "always",

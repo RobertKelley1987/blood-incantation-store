@@ -65,31 +65,33 @@ function CheckoutForm() {
         onSubmit={handleSubmit}
         className={`${paddingStyles} order-2 md:order-1 w-full flex flex-col gap-6`}
       >
-        <div>
+        <section>
           <h2 className="mb-3 font-semibold uppercase">Contact</h2>
           <LinkAuthenticationElement
             onChange={(e) => setEmail(e.value.email)}
           />
-        </div>
-        <div>
+        </section>
+        <section>
           <h2 className="mb-3 font-semibold uppercase">Shipping Address</h2>
           <AddressElement
             onChange={(e) => setShippingAddress(e.value)}
             options={{ mode: "shipping" }}
           />
-        </div>
+        </section>
         <ShippingMethod />
-        <div>
+        <section>
           <h2 className="mb-3 font-semibold uppercase">Payment</h2>
           <PaymentElement />
-        </div>
-        <button
-          disabled={isLoading || !stripe || !elements}
-          type="submit"
-          className="border border-black hover:bg-blood uppercase px-6 py-3"
-        >
-          {isLoading ? "Processing..." : "Confirm Order"}
-        </button>
+        </section>
+        <section>
+          <button
+            disabled={isLoading || !stripe || !elements}
+            type="submit"
+            className="w-full border border-black hover:bg-blood uppercase px-6 py-3"
+          >
+            {isLoading ? "Processing..." : "Confirm Order"}
+          </button>
+        </section>
         {error && <span className="text-blood">ERROR: {error}</span>}
       </form>
     );

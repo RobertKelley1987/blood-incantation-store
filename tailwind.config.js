@@ -15,6 +15,7 @@ module.exports = {
       },
       colors: {
         blood: "rgb(var(--blood-red))",
+        lightGrey: "rgb(230,230,230)",
       },
     },
   },

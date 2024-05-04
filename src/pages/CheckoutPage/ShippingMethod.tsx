@@ -6,9 +6,12 @@ function ShippingMethod() {
   const { shippingMethod, setShippingMethod } = useContext(ShippingContext);
 
   return (
-    <div>
+    <section>
       <h2 className="mb-3 font-semibold uppercase">Shipping Method</h2>
-      <fieldset>
+      <fieldset className="leading-[18.4px]">
+        <legend className="fixed left-[-9999px] scale-0">
+          Shipping Method
+        </legend>
         {SHIPPING_OPTIONS.map((option) => {
           return (
             <label
@@ -32,7 +35,7 @@ function ShippingMethod() {
           );
         })}
       </fieldset>
-    </div>
+    </section>
   );
 }
 

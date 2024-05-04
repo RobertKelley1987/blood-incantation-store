@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { pmtIntents } from "../services/pmt-intents";
 import { CartItem } from "../types";
 
 // Hook to update the shipping cost of pmt intent in Stripe.
 export function useUpdatePmtIntent(
   cartItems: CartItem[],
-  shippingCost: number,
+  shipping: number,
   pmtIntentId: string
 ) {
   const navigate = useNavigate();
@@ -25,18 +25,14 @@ export function useUpdatePmtIntent(
     const updatePmtIntent = async () => {
       const {
         data: { error },
-      } = await axios.put("/pmt-intent", {
-        pmtIntentId,
-        items,
-        shippingCost,
-      });
+      } = await pmtIntents.update(pmtIntentId, items, shipping);
 
-      // Navigate to a server error page if update fails.
+      // Navigate to server error page if update fails.
       if (error) {
         navigate("/checkout/error");
       }
     };
 
     updatePmtIntent();
-  }, [shippingCost]);
+  }, [shipping]);
 }

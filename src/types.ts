@@ -30,6 +30,8 @@ export type CartItem = {
   size?: Size;
 };
 
+export type ItemAndQty = { id: string; qty: number };
+
 export type Size = "Small" | "Medium" | "Large" | "Extra Large";
 
 export type SortOption = "New to Old" | "Old to New" | "A to Z" | "Z to A";
@@ -38,4 +40,11 @@ export type ShippingOption = {
   name: string;
   cost: number;
   days: number;
+};
+
+export type ContactFormData = {
+  name?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
 };
