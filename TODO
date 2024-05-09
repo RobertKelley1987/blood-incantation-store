@@ -1,12 +1,13 @@
 - product filter on all items page
-- Contact form needs errors for missing inputs etc...
 - Test and style PmtIntentError element
 - Need footer
 - Success page with confirmation number and order summary
 - Document return values and required args in custom hooks / helper functions
 - Review button component for deleting. Maybe add HTMLProps from react that lets you
 pass all normal button props. Research that.
-- make sure local storage cart is clearing on checkout
 - submit function in checkout form is a nightmare
 - google tracking form state with errors in react. I feel like 
 there is a better way.
+- Go through privacy policy, terms and conditions, payment and faqs pages looking for 
+references to Infinite Bliss. Replace with Blood Incantaion. Find refs to "infinitebliss.com"
+and change to real domain name.

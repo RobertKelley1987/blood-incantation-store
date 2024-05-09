@@ -75,3 +75,8 @@ export type ShippingAddress = {
   address: Address;
   phone?: string;
 };
+
+export type QAndA = {
+  question: string;
+  answer: string;
+};

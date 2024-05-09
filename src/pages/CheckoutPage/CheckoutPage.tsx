@@ -1,12 +1,12 @@
 import ShippingContextProvider from "../../context/ShippingContext";
-import { useDropdownStatus } from "../../hooks/useDropdownStatus";
+import { useDropdownWithResize } from "../../hooks/useDropdownWithResize";
 import Checkout from "./Checkout";
 import OrderSummary from "./OrderSummary";
 import ChevronSVG from "../../svgs/ChevronSVG";
 import CheckoutHeader from "./CheckoutHeader";
 
 function CheckoutPage() {
-  const { dropdownOpen, setDropdownOpen } = useDropdownStatus();
+  const { dropdownOpen, setDropdownOpen } = useDropdownWithResize();
 
   const handleClick = () => setDropdownOpen((prev) => !prev);
 

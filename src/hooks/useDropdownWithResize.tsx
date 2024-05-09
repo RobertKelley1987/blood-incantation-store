@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useDropdownStatus() {
+export function useDropdownWithResize() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export function useDropdownStatus() {
 
     // Remove listener when component unmounts
     return () => mdScreen.removeEventListener("change", toggleDropdown);
-  });
+  }, []);
 
   return { dropdownOpen, setDropdownOpen };
 }

@@ -4,7 +4,7 @@ type LogoProps = {
   className?: string;
   color?: string;
 };
-function Logo({ className, color = "black" }: LogoProps) {
+function Logo({ className = "", color = "black" }: LogoProps) {
   const [isHovering, setIsHovering] = useState(false);
 
   return (

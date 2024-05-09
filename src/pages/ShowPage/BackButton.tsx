@@ -9,7 +9,7 @@ function BackButton() {
       onClick={() => navigate(-1)}
       className="flex items-center uppercase gap-3 mb-6 hover:text-blood"
     >
-      <BackArrowSVG size="24" />
+      <BackArrowSVG />
       <span>Back</span>
     </button>
   );

@@ -1,13 +1,14 @@
-type BackArrowSVGProps = {
-  size?: string;
-};
-
-function BackArrowSVG({ size = "24" }: BackArrowSVGProps) {
+function BackArrowSVG({
+  className,
+  width = "24",
+  height = "24",
+}: React.HTMLProps<HTMLOrSVGElement>) {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

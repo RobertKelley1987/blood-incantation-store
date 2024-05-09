@@ -1,8 +1,4 @@
-type ChevronSVGProps = {
-  className?: string;
-};
-
-function ChevronSVG({ className }: ChevronSVGProps) {
+function ChevronSVG({ className }: React.HTMLProps<HTMLOrSVGElement>) {
   return (
     <svg
       className={className}

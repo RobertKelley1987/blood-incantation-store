@@ -1,15 +1,14 @@
-type ForwardArrowSVGProps = {
-  className?: string;
-  size?: string;
-};
-
-function ForwardArrowSVG({ className, size = "24" }: ForwardArrowSVGProps) {
+function ForwardArrowSVG({
+  className,
+  width = "24",
+  height = "24",
+}: React.HTMLProps<HTMLOrSVGElement>) {
   return (
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

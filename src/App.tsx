@@ -12,6 +12,10 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import FourZeroFourPage from "./pages/FourZeroFourPage";
 import ServerError from "./ServerError";
+import FAQPage from "./pages/FAQPage/FAQPage";
+import PaymentPage from "./pages/PaymentPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 
 // main app requires 2 separate sub-apps: store and checkout
 
@@ -58,6 +62,13 @@ function App() {
             ))}
             <Route path="/cart" element={<CartPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/faqs" element={<FAQPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route
+              path="/terms-and-conditions"
+              element={<TermsAndConditionsPage />}
+            />
             <Route path="/server-error" element={<ServerError />} />
             {NOT_FOUND_ROUTES.map((path) => (
               <Route key={path} path={path} element={<FourZeroFourPage />} />

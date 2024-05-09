@@ -22,7 +22,7 @@ function ShopByTypeDropdown({
         className="text-left uppercase flex md:hidden items-center gap-3 hover:text-blood"
         onClick={() => setDropdownOpen(false)}
       >
-        <BackArrowSVG size="30" />
+        <BackArrowSVG height="30" width="30" />
         <span>Back</span>
       </button>
       {PRODUCT_CATEGORIES.map((category) => (

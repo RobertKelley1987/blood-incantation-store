@@ -16,7 +16,7 @@ function RemoveItemButton({ product, qty, size }: RemoveItemButtonProps) {
 
   return (
     <button onClick={handleClick} className="hover:text-blood h-min">
-      <XSVG size="24" />
+      <XSVG />
     </button>
   );
 }

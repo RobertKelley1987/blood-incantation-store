@@ -34,9 +34,11 @@ const DEFAULT_FORM = {
 function ContactForm({ setMessageId }: ContactFormProps) {
   const [serverError, setServerError] = useState("");
   const [form, setForm] = useState<ContactFormType>(DEFAULT_FORM);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     // Flag tracking presence of errs
     let doNotSubmit = false;
@@ -53,7 +55,10 @@ function ContactForm({ setMessageId }: ContactFormProps) {
     setForm(updated);
 
     // Do not submit a form with errors
-    if (doNotSubmit) return;
+    if (doNotSubmit) {
+      setIsLoading(false);
+      return;
+    }
 
     // Send form data and handle possible server error
     const finalForm: ContactFormData = {};
@@ -69,6 +74,8 @@ function ContactForm({ setMessageId }: ContactFormProps) {
     } else {
       setMessageId(id);
     }
+
+    setIsLoading(false);
   };
 
   const errorMessage = (
@@ -110,9 +117,10 @@ function ContactForm({ setMessageId }: ContactFormProps) {
       </div>
       <button
         type="submit"
-        className="uppercase min-w-12 px-6 py-3 border border-black text-center hover:bg-blood"
+        disabled={isLoading}
+        className="disabled:bg-blood disabled:opacity-50 uppercase min-w-12 px-6 py-3 border border-black text-center hover:bg-blood"
       >
-        Send Message
+        {isLoading ? "Sending..." : "Send Message"}
       </button>
     </form>
   );

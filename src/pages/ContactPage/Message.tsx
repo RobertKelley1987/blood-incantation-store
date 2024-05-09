@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useMessageRef } from "../../hooks/useMessageRef";
 import type { ContactForm } from "../../types";
 
 type MessageProps = {
@@ -8,23 +8,7 @@ type MessageProps = {
 };
 
 function Message({ value, setForm, error }: MessageProps) {
-  const messageRef = useRef<HTMLTextAreaElement | null>(null);
-
-  // Expand and contract textarea as user types.
-  const updateHeight = () => {
-    const ref = messageRef.current;
-
-    if (ref) {
-      ref.style.height = "inherit";
-      ref.style.height = ref.scrollHeight + "px";
-    }
-  };
-
-  // Set height of textarea when component mounts.
-  // Experience was a little janky when I left this out.
-  useEffect(() => {
-    updateHeight();
-  }, [messageRef]);
+  const { messageRef, updateHeight } = useMessageRef();
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setForm((prev) => {
@@ -42,6 +26,7 @@ function Message({ value, setForm, error }: MessageProps) {
       <textarea
         onChange={handleChange}
         ref={messageRef}
+        value={value}
         id="message"
         onInput={updateHeight}
         className={`${border} border focus:border-black focus:border-[1px] focus:outline-none p-3 leading-[18.4px] flex`}

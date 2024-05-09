@@ -11,7 +11,7 @@ function MenuButton() {
       className="flex h-min hover:text-blood z-[100] md:hidden"
       onClick={() => setMenuOpen((prev) => !prev)}
     >
-      {menuOpen ? <XSVG size="30" /> : <MenuSVG />}
+      {menuOpen ? <XSVG height="30" width="30" /> : <MenuSVG />}
     </button>
   );
 }
