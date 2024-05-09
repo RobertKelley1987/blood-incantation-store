@@ -14,7 +14,7 @@ module.exports = {
         sans: ['"Public Sans", sans-serif'],
       },
       colors: {
-        blood: "rgb(var(--blood-red))",
+        blood: "rgb(230, 35, 49)",
         lightGrey: "rgb(230,230,230)",
       },
     },

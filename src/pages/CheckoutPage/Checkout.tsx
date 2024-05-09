@@ -33,6 +33,7 @@ function Checkout() {
       theme: "stripe",
       variables: {
         colorPrimary: "#FFFFFF",
+        colorDanger: "rgb(230, 35, 49)",
         fontFamily: "Public Sans, sans-serif",
         fontSizeSm: "1rem",
         spacingUnit: "0px",

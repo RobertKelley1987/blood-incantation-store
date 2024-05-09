@@ -65,7 +65,10 @@ function App() {
           </Route>
           <Route path="/checkout" element={<CheckoutPage />}></Route>
           <Route path="/checkout/success" element={<div>Success!</div>}></Route>
-          <Route path="/checkout/error" element={<ServerError />}></Route>
+          <Route
+            path="/checkout/server-error"
+            element={<ServerError />}
+          ></Route>
         </Routes>
       </MenuContextProvider>
     </CartContextProvider>

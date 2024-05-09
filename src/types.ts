@@ -42,9 +42,36 @@ export type ShippingOption = {
   days: number;
 };
 
+export type FormInput = {
+  value: string;
+  error: string;
+};
+
+export type ContactForm = {
+  name: FormInput;
+  email: FormInput;
+  subject: FormInput;
+  message: FormInput;
+};
+
 export type ContactFormData = {
   name?: string;
   email?: string;
   subject?: string;
   message?: string;
+};
+
+export type Address = {
+  city: string;
+  country: string;
+  line1: string;
+  line2: string | null;
+  state: string;
+  postal_code: string;
+};
+
+export type ShippingAddress = {
+  name: string;
+  address: Address;
+  phone?: string;
 };

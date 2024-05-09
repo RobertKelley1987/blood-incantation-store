@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   LinkAuthenticationElement,
   AddressElement,
@@ -6,29 +7,17 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import { CartContext } from "../../context/CartContext";
+import { orders } from "../../services/orders";
 import ShippingMethod from "./ShippingMethod";
-
-type ShippingAddress = {
-  name: string;
-  address: Address;
-  phone?: string;
-};
-
-type Address = {
-  city: string;
-  country: string;
-  line1: string;
-  line2: string | null;
-  state: string;
-  postal_code: string;
-};
-
-const paddingStyles = "p-6 md:pl-12 md:pr-6 md:pt-12";
+import type { ShippingAddress } from "../../types";
 
 function CheckoutForm() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [shippingAddress, setShippingAddress] =
     useState<ShippingAddress | null>(null);
+  const { items } = useContext(CartContext).state;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const stripe = useStripe();
@@ -37,23 +26,44 @@ function CheckoutForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Return if stripe components are not ready
     if (!stripe || !elements) {
       return;
     }
 
     setIsLoading(true);
 
-    const { error } = await stripe.confirmPayment({
+    // Process payment
+    const { error: pmtErr } = await stripe.confirmPayment({
       elements,
-      confirmParams: {
-        return_url: `${window.location.origin}/checkout/success`,
-      },
+      redirect: "if_required",
     });
 
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setError(error.message || "Payment failed.");
+    // Display any payment errors
+    if (pmtErr) {
+      if (pmtErr.type === "card_error" || pmtErr.type === "validation_error") {
+        setError(pmtErr.message || "Payment failed.");
+      } else {
+        setError("An unexpected error occurred.");
+      }
     } else {
-      setError("An unexpected error occurred.");
+      // Require contact info from Stripe elements to create order in db.
+      if (!email || !shippingAddress || !items.length) {
+        throw new Error(
+          "Contact info from stripe form must be saved in component state."
+        );
+      }
+
+      // Create order in server for processing.
+      const { data } = await orders.create(email, shippingAddress, items);
+      if (data.error) {
+        // Notify user of server error
+        navigate("/checkout/error");
+      } else {
+        // Clear cart in local storage and display order confirmation
+        localStorage.removeItem("blood-cart");
+        navigate("/checkout/success");
+      }
     }
 
     setIsLoading(false);
@@ -63,7 +73,7 @@ function CheckoutForm() {
     return (
       <form
         onSubmit={handleSubmit}
-        className={`${paddingStyles} order-2 md:order-1 w-full flex flex-col gap-6`}
+        className="order-2 md:order-1 w-full flex flex-col gap-6 p-6 md:pl-12 md:pr-6 md:pt-12"
       >
         <section>
           <h2 className="mb-3 font-semibold uppercase">Contact</h2>
@@ -92,7 +102,9 @@ function CheckoutForm() {
             {isLoading ? "Processing..." : "Confirm Order"}
           </button>
         </section>
-        {error && <span className="text-blood">ERROR: {error}</span>}
+        {error && (
+          <span className="font-semibold text-blood">ERROR: {error}</span>
+        )}
       </form>
     );
   };
