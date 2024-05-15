@@ -1,5 +1,12 @@
+import { isSortOptionType } from "../../utils/assertions";
 import ChevronSVG from "../../svgs/ChevronSVG";
+import type { SetURLSearchParams } from "react-router-dom";
 import type { SortOption } from "../../types";
+
+type SortOptionElement = {
+  value: SortOption;
+  text: string;
+};
 
 const OPTION_ELEMENTS: SortOptionElement[] = [
   {
@@ -20,36 +27,15 @@ const OPTION_ELEMENTS: SortOptionElement[] = [
   },
 ];
 
-type SortOptionElement = {
-  value: SortOption;
-  text: string;
-};
-
-// Helper to confirm whether a string is of SortOption type
-function isSortOptionType(sortOption: string): sortOption is SortOption {
-  const isSortOption = [
-    "New to Old",
-    "Old to New",
-    "A to Z",
-    "Z to A",
-  ].includes(sortOption);
-
-  if (!isSortOption) {
-    throw new Error("Value must be of type SortOption.");
-  } else {
-    return true;
-  }
-}
-
 type SortSelectorProps = {
-  sortOption: SortOption;
-  setSortOption: React.Dispatch<React.SetStateAction<SortOption>>;
+  sortBy: string;
+  setSortBy: (sortBy: SortOption) => void;
 };
 
-function SortSelector({ sortOption, setSortOption }: SortSelectorProps) {
+function SortSelector({ sortBy, setSortBy }: SortSelectorProps) {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const sortOption = e.target.value;
-    isSortOptionType(sortOption) && setSortOption(sortOption);
+    if (isSortOptionType(sortOption)) setSortBy(sortOption);
   };
 
   return (
@@ -58,7 +44,7 @@ function SortSelector({ sortOption, setSortOption }: SortSelectorProps) {
       <select
         className="appearance-none bg-white bg-opacity-0 border border-black hover:border-blood py-2 pl-2 pr-[32px] justify-self-end row-start-1 col-start-1 hover:cursor-pointer active:border-blood focus:outline-none"
         onChange={handleChange}
-        value={sortOption}
+        value={sortBy}
       >
         {OPTION_ELEMENTS.map(({ value, text }) => {
           return (

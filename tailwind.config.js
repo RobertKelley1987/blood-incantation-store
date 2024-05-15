@@ -17,6 +17,9 @@ module.exports = {
         blood: "rgb(230, 35, 49)",
         lightGrey: "rgb(230,230,230)",
       },
+      boxShadow: {
+        checkbox: "inset 1em 1em rgb(230, 35, 49)",
+      },
     },
   },
   plugins: [],

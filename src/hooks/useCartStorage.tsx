@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useState } from "react";
 import { cartReducer } from "../reducers/cartReducer";
 
+// Hook to save cart to local storage as its contents update.
 export function useCartStorage() {
   const [isLoading, setIsLoading] = useState(true);
   const [state, dispatch] = useReducer(cartReducer, {

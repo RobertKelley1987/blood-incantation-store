@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { MAX_ITEM_QTY } from "../../constants";
-import ProductQty from "../../ProductQty";
+import ProductQty from "../../components/ProductQty";
 import type { Accessory, Apparel, Music, Size } from "../../types";
 
 type CartItemQtyProps = {

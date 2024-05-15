@@ -7,10 +7,9 @@ type Category = {
 
 type NavListItemProps = {
   category: Category;
-  handleClick: () => void;
 };
 
-function NavListItem({ category, handleClick }: NavListItemProps) {
+function NavListItem({ category }: NavListItemProps) {
   const { lowercase, capitalized } = category;
 
   return (
@@ -18,7 +17,6 @@ function NavListItem({ category, handleClick }: NavListItemProps) {
       <Link
         to={`/collections/${lowercase}`}
         className="text-nowrap hover:text-blood uppercase"
-        onClick={handleClick}
       >
         {capitalized}
       </Link>

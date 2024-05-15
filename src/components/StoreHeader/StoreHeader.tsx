@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import MenuButton from "./MenuButton";
-import Logo from "./components/Logo";
-import CartLink from "./components/CartLink";
+import Logo from "../Logo";
+import CartLink from "../CartLink";
 
 type StoreHeaderProps = {
   scrollingUp: boolean;

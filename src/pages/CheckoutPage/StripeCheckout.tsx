@@ -19,8 +19,6 @@ function Checkout() {
   const { clientSecret, pmtIntentId } = useCreatePmtIntent(items, shipping);
   useUpdatePmtIntent(items, shipping, pmtIntentId);
 
-  console.log(items);
-
   const options: StripeElementsOptions = {
     clientSecret,
     fonts: [

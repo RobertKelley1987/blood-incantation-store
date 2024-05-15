@@ -1,5 +1,5 @@
-import PlusSVG from "./svgs/PlusSVG";
-import MinusSVG from "./svgs/MinusSVG";
+import PlusSVG from "../svgs/PlusSVG";
+import MinusSVG from "../svgs/MinusSVG";
 
 type ProductQtyProps = {
   qty: number;

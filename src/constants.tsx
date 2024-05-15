@@ -1,4 +1,9 @@
-import type { ShippingOption, SortOption, Product } from "./types";
+import type {
+  ShippingOption,
+  SortOption,
+  Product,
+  ProductCategory,
+} from "./types";
 
 export const MIN_ITEM_QTY = 1;
 export const MAX_ITEM_QTY = 10;
@@ -8,7 +13,7 @@ export const SHIPPING_OPTIONS: ShippingOption[] = [
   { name: "Express", cost: 12.99, days: 2 },
 ];
 
-export const PRODUCT_CATEGORIES = [
+export const PRODUCT_CATEGORIES: ProductCategory[] = [
   { lowercase: "t-shirts", capitalized: "T-Shirts" },
   { lowercase: "longsleeves", capitalized: "Longsleeves" },
   { lowercase: "hoodies", capitalized: "Hoodies" },
@@ -16,6 +21,8 @@ export const PRODUCT_CATEGORIES = [
   { lowercase: "cds", capitalized: "CDs" },
   { lowercase: "patches", capitalized: "Patches" },
 ];
+
+export const SORT_OPTIONS = ["A to Z", "Z to A", "New to Old", "Old to New"];
 
 export const COMPARE_FNS: {
   [Option in SortOption]: (a: Product, b: Product) => number;
@@ -41,3 +48,12 @@ export const COMPARE_FNS: {
     return dateOne - dateTwo;
   },
 };
+
+export const PRODUCT_TYPES = [
+  "t-shirts",
+  "longsleeves",
+  "hoodies",
+  "vinyl",
+  "cds",
+  "patches",
+];

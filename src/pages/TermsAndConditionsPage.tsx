@@ -1,11 +1,4 @@
-import { useEffect } from "react";
-
 function TermsAndConditionsPage() {
-  // Scroll to top page on render
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="flex flex-col gap-6 w-full px-6 sm:px-12 max-w-screen-lg">
       <h1 className="uppercase font-semibold text-5xl sm:text-7xl">

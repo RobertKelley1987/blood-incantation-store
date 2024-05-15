@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+// Hook to provide state confirming whether user is scrolling up the page.
 export function useScrollingUp() {
   const [scrollingUp, setScrollingUp] = useState(false);
   const prevYOffset = useRef(window.scrollY || 0);

@@ -1,28 +1,27 @@
 import { Route, Routes } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
 import MenuContextProvider from "./context/MenuContext";
-import Store from "./Store";
-import HomePage from "./HomePage";
+import Store from "./components/Store";
+import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ApparelShowPage from "./pages/ApparelShowPage/ApparelShowPage";
 import MusicShowPage from "./pages/MusicShowPage/MusicShowPage";
 import AccessoryShowPage from "./pages/AccessoryShowPage/AccessoryShowPage";
 import CartPage from "./pages/CartPage/CartPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
+import Checkout from "./components/Checkout";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
-import FourZeroFourPage from "./pages/FourZeroFourPage";
-import ServerError from "./ServerError";
 import FAQPage from "./pages/FAQPage/FAQPage";
 import PaymentPage from "./pages/PaymentPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
-
-// main app requires 2 separate sub-apps: store and checkout
+import OrderConfirmationPage from "./pages/OrderConfirmationPage";
+import ServerErrorPage from "./pages/ServerErrorPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const APPAREL = ["hoodies", "longsleeves", "t-shirts"];
 const MUSIC = ["vinyl", "cds"];
 const ACCESSORIES = ["patches"];
-const NOT_FOUND_ROUTES = ["/404", "*"];
 
 function App() {
   return (
@@ -35,10 +34,7 @@ function App() {
               path="/collections/all"
               element={<ProductsPage headingText="All Items" />}
             />
-            <Route
-              path="/collections/:productType"
-              element={<ProductsPage />}
-            />
+            <Route path="/collections/:collection" element={<ProductsPage />} />
             {APPAREL.map((category) => (
               <Route
                 key={category}
@@ -69,17 +65,22 @@ function App() {
               path="/terms-and-conditions"
               element={<TermsAndConditionsPage />}
             />
-            <Route path="/server-error" element={<ServerError />} />
-            {NOT_FOUND_ROUTES.map((path) => (
-              <Route key={path} path={path} element={<FourZeroFourPage />} />
-            ))}
+            <Route path="/server-error" element={<ServerErrorPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
-          <Route path="/checkout" element={<CheckoutPage />}></Route>
-          <Route path="/checkout/success" element={<div>Success!</div>}></Route>
-          <Route
-            path="/checkout/server-error"
-            element={<ServerError />}
-          ></Route>
+
+          <Route path="/checkout" element={<Checkout />}>
+            <Route index element={<CheckoutPage />} />
+            <Route
+              path="/checkout/success"
+              element={<OrderConfirmationPage />}
+            ></Route>
+            <Route
+              path="/checkout/server-error"
+              element={<ServerErrorPage />}
+            />
+            <Route path="/checkout/*" element={<NotFoundPage />} />
+          </Route>
         </Routes>
       </MenuContextProvider>
     </CartContextProvider>

@@ -13,15 +13,16 @@ import ShippingMethod from "./ShippingMethod";
 import type { ShippingAddress } from "../../types";
 
 function CheckoutForm() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [shippingAddress, setShippingAddress] =
     useState<ShippingAddress | null>(null);
-  const { items } = useContext(CartContext).state;
+  const { state, dispatch } = useContext(CartContext);
+  const items = state.items;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,6 +63,7 @@ function CheckoutForm() {
       } else {
         // Clear cart in local storage and display order confirmation
         localStorage.removeItem("blood-cart");
+        dispatch({ type: "SET_CART", items: [] });
         navigate("/checkout/success");
       }
     }

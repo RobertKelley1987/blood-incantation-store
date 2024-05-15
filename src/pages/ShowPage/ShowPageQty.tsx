@@ -1,5 +1,5 @@
 import { MIN_ITEM_QTY, MAX_ITEM_QTY } from "../../constants";
-import ProductQty from "../../ProductQty";
+import ProductQty from "../../components/ProductQty";
 
 type ShowPageQtyProps = {
   qty: number;

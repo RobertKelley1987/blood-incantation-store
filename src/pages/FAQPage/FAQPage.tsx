@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import FAQ from "./FAQ";
 import type { QAndA } from "../../types";
 
@@ -46,11 +45,6 @@ const FAQS: QAndA[] = [
 ];
 
 function FAQPage() {
-  // Scroll to top of page on render
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="flex flex-col gap-6 basis-full w-full max-w-screen-lg px-6 sm:px-12">
       <h1 className="font-semibold uppercase text-5xl sm:text-7xl">FAQs</h1>

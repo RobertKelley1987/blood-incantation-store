@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { assertIsNode } from "../utils/assertions";
+import { useLocation } from "react-router-dom";
 
-// Hook to close dropdown menu when user clicks outside of it, and access
-// dropdown's open/closed state.
+// Hook to close dropdown menu when user clicks outside of it and handle
+// its open/closed state.
 // Requires ref to the outermost element of the dropdown as an argument.
 export function useMenuDropdown(dropdownRef: React.RefObject<HTMLElement>) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const path = useLocation().pathname;
 
   useEffect(() => {
     function clickOutsideToClose(e: MouseEvent) {
@@ -22,7 +24,11 @@ export function useMenuDropdown(dropdownRef: React.RefObject<HTMLElement>) {
     document.body.addEventListener("click", clickOutsideToClose);
     return () =>
       document.body.removeEventListener("click", clickOutsideToClose);
-  }, []);
+  }, [dropdownRef]);
+
+  useEffect(() => {
+    setDropdownOpen(false);
+  }, [path]);
 
   return { dropdownOpen, setDropdownOpen };
 }

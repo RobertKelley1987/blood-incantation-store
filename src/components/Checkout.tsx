@@ -1,0 +1,16 @@
+import { Outlet } from "react-router-dom";
+import ShippingContextProvider from "../context/ShippingContext";
+import CheckoutHeader from "../pages/CheckoutPage/CheckoutHeader";
+
+function Checkout() {
+  return (
+    <ShippingContextProvider>
+      <div className="flex flex-col items-center items-center min-h-screen">
+        <CheckoutHeader />
+        <Outlet />
+      </div>
+    </ShippingContextProvider>
+  );
+}
+
+export default Checkout;

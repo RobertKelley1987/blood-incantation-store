@@ -1,12 +1,12 @@
 import { useContext, useRef } from "react";
-import { MenuContext } from "./context/MenuContext";
+import { MenuContext } from "../../context/MenuContext";
 import { Link } from "react-router-dom";
-import { useMenuDropdown } from "./hooks/useMenuDropdown";
+import { useMenuDropdown } from "../../hooks/useMenuDropdown";
 import ShopByTypeDropdown from "./ShopByTypeDropdown";
-import ForwardArrowSVG from "./svgs/ForwardArrowSVG";
+import ForwardArrowSVG from "../../svgs/ForwardArrowSVG";
 
 function Nav() {
-  const { menuOpen, setMenuOpen } = useContext(MenuContext);
+  const { menuOpen } = useContext(MenuContext);
   const leftPosition = menuOpen ? "left-0" : "left-[-9999px]";
   const dropdownWrapper = useRef<HTMLLIElement>(null);
   const { dropdownOpen, setDropdownOpen } = useMenuDropdown(dropdownWrapper);
@@ -17,11 +17,7 @@ function Nav() {
     >
       <ul className="p-6 md:p-0 font-sans uppercase font-semibold text-4xl md:text-base flex flex-col md:flex-row mt-[60px] md:mt-0 gap-6 md:gap-12">
         <li>
-          <Link
-            onClick={() => setMenuOpen(false)}
-            to="/collections/all"
-            className="hover:text-blood"
-          >
+          <Link to="/collections/all" className="hover:text-blood">
             Shop All
           </Link>
         </li>
@@ -34,18 +30,11 @@ function Nav() {
             <ForwardArrowSVG className="md:hidden" width="30" height="30" />
           </button>
           {dropdownOpen && (
-            <ShopByTypeDropdown
-              setDropdownOpen={setDropdownOpen}
-              setMenuOpen={setMenuOpen}
-            />
+            <ShopByTypeDropdown setDropdownOpen={setDropdownOpen} />
           )}
         </li>
         <li>
-          <Link
-            onClick={() => setMenuOpen(false)}
-            to="/contact"
-            className="hover:text-blood"
-          >
+          <Link to="/contact" className="hover:text-blood">
             Contact
           </Link>
         </li>

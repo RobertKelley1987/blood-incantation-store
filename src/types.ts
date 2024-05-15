@@ -22,6 +22,19 @@ export type Accessory = Product & {
   desc: string[];
 };
 
+export type ProductType =
+  | "t-shirts"
+  | "longsleeves"
+  | "hoodies"
+  | "vinyl"
+  | "cds"
+  | "patches";
+
+export type ProductCategory = {
+  lowercase: ProductType;
+  capitalized: string;
+};
+
 export type CartProduct = Apparel | Music | Accessory;
 
 export type CartItem = {
