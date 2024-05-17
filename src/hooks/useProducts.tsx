@@ -38,9 +38,9 @@ export function useProducts() {
 
     // If user is in a product collection, filter by that product type
     if (collection) {
-      filtered = allProducts.filter(
-        (product) => product.category === collection
-      );
+      filtered = allProducts.filter((product) => {
+        if (product.category === collection) return product;
+      });
       // If user has selected product type filters, apply them
     } else if (productTypes.length) {
       filtered = allProducts.filter((product) => {

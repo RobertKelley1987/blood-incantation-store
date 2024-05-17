@@ -11,7 +11,7 @@ function FooterSocials() {
           className="hover:text-blood"
           href="https://www.facebook.com/BloodIncantationOfficial/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <FacebookSVG />
         </a>
@@ -21,7 +21,7 @@ function FooterSocials() {
           className="hover:text-blood"
           href="https://www.instagram.com/bloodincantationofficial/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <InstagramSVG />
         </a>
@@ -31,7 +31,7 @@ function FooterSocials() {
           className="hover:text-blood"
           href="https://open.spotify.com/artist/6FGv87WQ3mJWn3cmLUww6x"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <SpotifySVG />
         </a>
@@ -41,7 +41,7 @@ function FooterSocials() {
           className="hover:text-blood"
           href="https://www.youtube.com/channel/UCz4EMljmmFlcOcxJMazlw_Q"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <YoutubeSVG />
         </a>
