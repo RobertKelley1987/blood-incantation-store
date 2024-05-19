@@ -1,6 +1,6 @@
 function PaymentPage() {
   return (
-    <div className="flex flex-col gap-6 w-full px-6 sm:px-12">
+    <main className="flex flex-col gap-6 w-full px-6 sm:px-12">
       <h1 className="font-semibold uppercase text-5xl sm:text-7xl">Payment</h1>
       <section>
         <h2 className="font-semibold uppercase">Accepted Payment Options</h2>
@@ -17,7 +17,7 @@ function PaymentPage() {
           debited in conjunction with the conclusion of the contract.
         </p>
       </section>
-    </div>
+    </main>
   );
 }
 

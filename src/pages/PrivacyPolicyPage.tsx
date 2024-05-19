@@ -7,7 +7,7 @@ function PrivacyPolicyPage() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-6 w-full px-6 sm:px-12">
+    <main className="flex flex-col gap-6 w-full px-6 sm:px-12">
       <h1 className="uppercase font-semibold text-5xl sm:text-7xl">
         Privacy Policy
       </h1>
@@ -157,7 +157,7 @@ function PrivacyPolicyPage() {
           not hesitate to contact us.
         </p>
       </section>
-    </div>
+    </main>
   );
 }
 

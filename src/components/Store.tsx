@@ -20,11 +20,11 @@ function Store() {
   return (
     <div className="flex flex-col min-h-screen grow items-center">
       <StoreHeader scrollingUp={scrollingUp} />
-      <main
-        className={`${mobileMargin} ${desktopMargin} mb-12 flex flex-col basis-full grow items-center justify-center gap-16 w-full`}
+      <div
+        className={`${mobileMargin} ${desktopMargin} mb-14 flex flex-col basis-full grow items-center justify-center gap-16 w-full`}
       >
         <Outlet />
-      </main>
+      </div>
       <StoreFooter />
     </div>
   );

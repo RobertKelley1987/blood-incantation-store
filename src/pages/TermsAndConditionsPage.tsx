@@ -1,6 +1,6 @@
 function TermsAndConditionsPage() {
   return (
-    <div className="flex flex-col gap-6 w-full px-6 sm:px-12 max-w-screen-lg">
+    <main className="flex flex-col gap-6 w-full px-6 sm:px-12 max-w-screen-lg">
       <h1 className="uppercase font-semibold text-5xl sm:text-7xl">
         Terms and Conditions
       </h1>
@@ -253,7 +253,7 @@ function TermsAndConditionsPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

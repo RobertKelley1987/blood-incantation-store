@@ -1,22 +1,26 @@
-import { useEffect, useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 // Hook to access current page number.
-const usePageNum = () => {
-  // Get query params from url
-  const { search } = useLocation();
-  const query = useMemo(() => new URLSearchParams(search), [search]);
+export function usePageNum() {
+  const [query, setQuery] = useSearchParams({ page: "1" });
 
-  // Parse and page number
-  const pageNumQuery = query.get("page") || "1";
-  const pageNum = parseInt(pageNumQuery);
+  // Parse page number
+  const pageNumQuery = query.get("page");
+  const pageNum = pageNumQuery ? parseInt(pageNumQuery) : 1;
+
+  // Method to update page number without deleting existing search params
+  function setPageNum(page: number) {
+    setQuery((searchParams) => {
+      searchParams.set("page", page.toString());
+      return searchParams;
+    });
+  }
 
   // Scroll to top of page if page num changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pageNum]);
 
-  return { pageNum };
-};
-
-export default usePageNum;
+  return { pageNum, setPageNum };
+}

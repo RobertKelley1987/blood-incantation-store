@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
 import MenuContextProvider from "./context/MenuContext";
 import Store from "./components/Store";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ApparelShowPage from "./pages/ApparelShowPage/ApparelShowPage";
 import MusicShowPage from "./pages/MusicShowPage/MusicShowPage";

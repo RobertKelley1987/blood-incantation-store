@@ -1,6 +1,6 @@
+import { useSortBy } from "../../hooks/useSortBy";
 import { isSortOptionType } from "../../utils/assertions";
 import ChevronSVG from "../../svgs/ChevronSVG";
-import type { SetURLSearchParams } from "react-router-dom";
 import type { SortOption } from "../../types";
 
 type SortOptionElement = {
@@ -27,22 +27,19 @@ const OPTION_ELEMENTS: SortOptionElement[] = [
   },
 ];
 
-type SortSelectorProps = {
-  sortBy: string;
-  setSortBy: (sortBy: SortOption) => void;
-};
+function SortSelector() {
+  const { sortBy, setSortBy } = useSortBy();
 
-function SortSelector({ sortBy, setSortBy }: SortSelectorProps) {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const sortOption = e.target.value;
     if (isSortOptionType(sortOption)) setSortBy(sortOption);
   };
 
   return (
-    <div className="w-min grid justify-items-end items-center">
-      <ChevronSVG className="row-start-1 col-start-1 mr-2" />
+    <div className="w-full md:w-min grid justify-items-end items-center hover:text-blood md:hover:text-black">
+      <ChevronSVG className="row-start-1 col-start-1 md:mr-2" />
       <select
-        className="appearance-none bg-white bg-opacity-0 border border-black hover:border-blood py-2 pl-2 pr-[32px] justify-self-end row-start-1 col-start-1 hover:cursor-pointer active:border-blood focus:outline-none"
+        className="w-full md:w-auto [&>*]:hover:text-black appearance-none uppercase font-semibold md:font-normal bg-white bg-opacity-0 md:border border-black hover:border-blood py-2 md:pl-2 md:pr-[32px] justify-self-end row-start-1 col-start-1 hover:cursor-pointer active:border-blood focus:outline-none"
         onChange={handleChange}
         value={sortBy}
       >
