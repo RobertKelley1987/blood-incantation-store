@@ -17,6 +17,7 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
 import ServerErrorPage from "./pages/ServerErrorPage";
+import OrderErrorPage from "./pages/OrderErrorPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const APPAREL = ["hoodies", "longsleeves", "t-shirts"];
@@ -79,6 +80,7 @@ function App() {
               path="/checkout/server-error"
               element={<ServerErrorPage />}
             />
+            <Route path="/checkout/order-error" element={<OrderErrorPage />} />
             <Route path="/checkout/*" element={<NotFoundPage />} />
           </Route>
         </Routes>

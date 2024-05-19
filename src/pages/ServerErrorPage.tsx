@@ -3,7 +3,7 @@ import LinkButton from "../components/LinkButton";
 function ServerErrorPage() {
   return (
     <main className="flex flex-col justify-center items-center grow gap-6">
-      <div>
+      <div className="flex flex-col gap-1">
         <p className="text-center">
           We were unable to process your payment due to a server error.
         </p>

@@ -59,7 +59,7 @@ function CheckoutForm() {
       const { data } = await orders.create(email, shippingAddress, items);
       if (data.error) {
         // Notify user of server error
-        navigate("/checkout/error");
+        navigate("/checkout/order-error");
       } else {
         // Clear cart in local storage and display order confirmation
         localStorage.removeItem("blood-cart");
