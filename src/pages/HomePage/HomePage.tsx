@@ -15,12 +15,14 @@ function HomePage() {
           src={`../imgs/logo-red.png`}
         />{" "}
       </div>
-      <HomePageSection products={featuredTShirts} collection="T-Shirts" />
-      <HomePageSection
-        products={featuredLongsleeves}
-        collection="Longsleeves"
-      />
-      <HomePageSection products={featuredVinyl} collection="Vinyl" />
+      <div className="flex flex-col gap-24">
+        <HomePageSection products={featuredTShirts} collection="T-Shirts" />
+        <HomePageSection
+          products={featuredLongsleeves}
+          collection="Longsleeves"
+        />
+        <HomePageSection products={featuredVinyl} collection="Vinyl" />
+      </div>
     </div>
   );
 }
