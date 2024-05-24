@@ -34,4 +34,7 @@ export type Action =
   | {
       type: "SET_CART";
       items: CartItem[];
+    }
+  | {
+      type: "EMPTY_CART";
     };

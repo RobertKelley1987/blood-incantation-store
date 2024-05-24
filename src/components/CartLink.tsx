@@ -9,7 +9,7 @@ type CartLinkProps = {
 };
 
 function CartLink({ className }: CartLinkProps) {
-  const totalQty = useContext(CartContext).state.totalQty;
+  const { totalQty } = useContext(CartContext).state;
 
   // Add additional class names
   let classNames = "flex gap-2 hover:text-blood";

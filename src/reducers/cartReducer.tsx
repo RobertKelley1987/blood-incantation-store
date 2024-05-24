@@ -1,6 +1,11 @@
 import type { State, Action } from "./types";
 import type { CartItem, CartProduct, Size } from "../types";
-import { updateState, itemIsEqual, findItemIndex } from "./helpers";
+import {
+  updateState,
+  itemIsEqual,
+  findItemIndex,
+  updateLocalStorage,
+} from "./helpers";
 
 export function cartReducer(state: State, action: Action) {
   const { items } = state;
@@ -28,6 +33,7 @@ export function cartReducer(state: State, action: Action) {
         updatedItems.push({ product, qty, size });
       }
       // Return state with updated totals
+      updateLocalStorage(updatedItems);
       return updateState(updatedItems);
     case "INCREMENT_ITEM":
       updatedItems = [...items];
@@ -43,6 +49,7 @@ export function cartReducer(state: State, action: Action) {
 
       // Otherwise, increment item and update state
       ++updatedItems[productIndex].qty;
+      updateLocalStorage(updatedItems);
       return updateState(updatedItems);
     case "DECREMENT_ITEM":
       product = action.product;
@@ -67,6 +74,7 @@ export function cartReducer(state: State, action: Action) {
       }
 
       // Return state with updated totals
+      updateLocalStorage(updatedItems);
       return updateState(updatedItems);
     case "REMOVE_ITEM":
       product = action.product;
@@ -85,9 +93,14 @@ export function cartReducer(state: State, action: Action) {
       );
 
       // Return state with updated total qty and value
+      updateLocalStorage(filteredItems);
       return updateState(filteredItems);
     case "SET_CART":
+      // To match cart state to locally stored cart if one exists
       return updateState(action.items);
+    case "EMPTY_CART":
+      // To match cart state to locally stored cart if one exists
+      return updateState([]);
     default:
       return state;
   }

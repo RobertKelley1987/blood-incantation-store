@@ -23,6 +23,12 @@ export function updateState(updatedCart: CartItem[]): State {
   };
 }
 
+// Helper to update cart in local storage
+export function updateLocalStorage(cart: CartItem[]) {
+  const jsonCart = JSON.stringify(cart);
+  localStorage.setItem("blood-cart", jsonCart);
+}
+
 // Helper to determine whether 2 products are the same
 export function itemIsEqual(
   cartItem: CartItem,

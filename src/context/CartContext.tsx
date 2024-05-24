@@ -1,11 +1,10 @@
-import { createContext } from "react";
+import { createContext, useReducer } from "react";
 import type { State, Action } from "../reducers/types";
-import { useCartStorage } from "../hooks/useCartStorage";
+import { cartReducer } from "../reducers/cartReducer";
 
 type CartContextType = {
   state: State;
   dispatch: React.Dispatch<Action>;
-  isLoading: boolean;
 };
 
 type CartContextProviderProps = {
@@ -19,14 +18,17 @@ export const CartContext = createContext<CartContextType>({
     totalValue: 0,
   },
   dispatch: () => null,
-  isLoading: true,
 });
 
 function CartContextProvider({ children }: CartContextProviderProps) {
-  const { state, dispatch, isLoading } = useCartStorage();
+  const [state, dispatch] = useReducer(cartReducer, {
+    items: [],
+    totalQty: 0,
+    totalValue: 0,
+  });
 
   return (
-    <CartContext.Provider value={{ state, dispatch, isLoading }}>
+    <CartContext.Provider value={{ state, dispatch }}>
       {children}
     </CartContext.Provider>
   );

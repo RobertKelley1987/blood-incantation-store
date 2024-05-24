@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useScrollingUp } from "../hooks/useScrollingUp";
+import { useLocalCart } from "../hooks/useLocalCart";
 import { MenuContext } from "../context/MenuContext";
 import StoreHeader from "./StoreHeader/StoreHeader";
 import StoreFooter from "./StoreFooter/StoreFooter";
@@ -11,6 +12,9 @@ function Store() {
   const desktopMargin = scrollingUp ? "md:mt-[116px]" : "md:mt-12";
   const mobileMargin = menuOpen ? "mt-0" : "mt-[116px]";
   const path = useLocation().pathname;
+
+  // Make app cart same as local storage cart
+  useLocalCart();
 
   // Scroll to top of store site every time a user clicks a link
   useEffect(() => {
