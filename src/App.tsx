@@ -16,7 +16,8 @@ import PaymentPage from "./pages/PaymentPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
-import ServerErrorPage from "./pages/ServerErrorPage";
+import ProductErrorPage from "./pages/ProductErrorPage";
+import PmtErrorPage from "./pages/PmtErrorPage";
 import OrderErrorPage from "./pages/OrderErrorPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
@@ -66,7 +67,7 @@ function App() {
               path="/terms-and-conditions"
               element={<TermsAndConditionsPage />}
             />
-            <Route path="/server-error" element={<ServerErrorPage />} />
+            <Route path="/product-error" element={<ProductErrorPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
 
@@ -76,10 +77,7 @@ function App() {
               path="/checkout/success"
               element={<OrderConfirmationPage />}
             ></Route>
-            <Route
-              path="/checkout/server-error"
-              element={<ServerErrorPage />}
-            />
+            <Route path="/checkout/pmt-error" element={<PmtErrorPage />} />
             <Route path="/checkout/order-error" element={<OrderErrorPage />} />
             <Route path="/checkout/*" element={<NotFoundPage />} />
           </Route>

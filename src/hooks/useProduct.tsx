@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { Product, SortOption } from "../types";
+import type { Product } from "../types";
 
 // Hook to access a specific product using the produc's id from the
 // current url.
@@ -16,7 +16,6 @@ export function useProduct<T extends Product>(products: T[]) {
 
     return function reset() {
       setProduct(null);
-      setIsLoading(true);
     };
   }, [id]);
 

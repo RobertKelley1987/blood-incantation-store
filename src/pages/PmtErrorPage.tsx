@@ -1,6 +1,6 @@
 import LinkButton from "../components/LinkButton";
 
-function ServerErrorPage() {
+function PmtErrorPage() {
   return (
     <main className="flex flex-col justify-center items-center grow gap-6">
       <div className="flex flex-col gap-1">
@@ -14,4 +14,4 @@ function ServerErrorPage() {
   );
 }
 
-export default ServerErrorPage;
+export default PmtErrorPage;

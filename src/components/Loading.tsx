@@ -6,7 +6,7 @@ type LoadingProps = {
 function Loading({ isLoading, children }: LoadingProps) {
   const renderLoading = () => {
     return (
-      <div className="text-center w-full basis-full grow shrink-0 mt-12">
+      <div className="text-center w-full basis-full grow shrink-0 my-12">
         Loading...
       </div>
     );
