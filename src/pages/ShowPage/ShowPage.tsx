@@ -4,14 +4,7 @@ import ShowPageQty from "./ShowPageQty";
 import ShowPageImgs from "./ShowPageImgs";
 import AddToCartButton from "./AddToCartButton";
 import BackButton from "./BackButton";
-import type {
-  Apparel,
-  Music,
-  Accessory,
-  CartProduct,
-  Product,
-  Size,
-} from "../../types";
+import type { Apparel, Music, Accessory, Size } from "../../types";
 
 export type ShowPageProps<T> = {
   product: T | null;
@@ -29,7 +22,7 @@ function ShowPage<T extends Apparel | Music | Accessory>({
   const [qty, setQty] = useState(1);
 
   if (!product) {
-    throw new Error("product not found");
+    throw new Error("Product not found.");
   }
 
   const { imgs, productName, productType, price } = product;

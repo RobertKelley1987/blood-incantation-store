@@ -16,7 +16,6 @@ import PaymentPage from "./pages/PaymentPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
-import ProductErrorPage from "./pages/ProductErrorPage";
 import PmtErrorPage from "./pages/PmtErrorPage";
 import OrderErrorPage from "./pages/OrderErrorPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -67,7 +66,6 @@ function App() {
               path="/terms-and-conditions"
               element={<TermsAndConditionsPage />}
             />
-            <Route path="/product-error" element={<ProductErrorPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
 
