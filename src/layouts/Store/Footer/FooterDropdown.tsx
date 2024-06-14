@@ -1,5 +1,5 @@
-import { useDropdownWithResize } from "../../hooks/useDropdownWithResize";
-import ChevronSVG from "../../svgs/ChevronSVG";
+import { useDropdownWithResize } from "../../../hooks/useDropdownWithResize";
+import ChevronSVG from "../../../components/svgs/ChevronSVG";
 
 type FooterDropdownProps = {
   heading: string;
@@ -10,7 +10,7 @@ function FooterDropdown({ heading, children }: FooterDropdownProps) {
   const { dropdownOpen, setDropdownOpen } = useDropdownWithResize();
 
   return (
-    <div className="w-full">
+    <div className="w-full md:row-span-2">
       <div
         onClick={() => setDropdownOpen((prev) => !prev)}
         className="py-1 md:py-0 flex justify-between w-full hover:text-blood hover:cursor-pointer hover:md:text-black hover:md:cursor-auto"

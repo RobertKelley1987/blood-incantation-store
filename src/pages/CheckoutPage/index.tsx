@@ -1,7 +1,7 @@
 import { useDropdownWithResize } from "../../hooks/useDropdownWithResize";
 import StripeCheckout from "./StripeCheckout";
 import OrderSummary from "./OrderSummary";
-import ChevronSVG from "../../svgs/ChevronSVG";
+import ChevronSVG from "../../components/svgs/ChevronSVG";
 
 function CheckoutPage() {
   const { dropdownOpen, setDropdownOpen } = useDropdownWithResize();
@@ -14,7 +14,7 @@ function CheckoutPage() {
       <div className="order-1 md:order-2">
         <div
           onClick={handleClick}
-          className="w-full max-w-screen-lg p-6 md:px-12 flex md:hidden border-b border-black justify-between hover:cursor-pointer hover:text-blood"
+          className="w-full max-w-screen-lg p-6 sm:px-12 flex md:hidden border-b border-black justify-between hover:cursor-pointer hover:text-blood"
         >
           <div className="flex gap-1">
             <ChevronSVG className={dropdownOpen ? "rotate-180" : ""} />

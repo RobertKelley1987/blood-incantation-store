@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useProduct } from "../../hooks/useProduct";
 import { apparel } from "../../db";
-import ShowPage from "../ShowPage/ShowPage";
+import ShowPage from "../ShowPage";
 import ApparelSizes from "./ApparelSizes";
 import ApparelInfo from "./ApparelInfo";
 import ErrorBoundary from "../../components/ErrorBoundary";

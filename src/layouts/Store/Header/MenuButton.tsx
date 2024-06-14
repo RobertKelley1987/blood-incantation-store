@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { MenuContext } from "../../context/MenuContext";
-import XSVG from "../../svgs/XSVG";
-import MenuSVG from "../../svgs/MenuSVG";
+import { MenuContext } from "../../../context/MenuContext";
+import XSVG from "../../../components/svgs/XSVG";
+import MenuSVG from "../../../components/svgs/MenuSVG";
 
 function MenuButton() {
   const { menuOpen, setMenuOpen } = useContext(MenuContext);

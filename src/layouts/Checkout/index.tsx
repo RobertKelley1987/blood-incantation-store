@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import ShippingContextProvider from "../context/ShippingContext";
-import CheckoutHeader from "../pages/CheckoutPage/CheckoutHeader";
+import ShippingContextProvider from "../../context/ShippingContext";
+import CheckoutHeader from "./Header";
 
 function Checkout() {
   return (

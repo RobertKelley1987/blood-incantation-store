@@ -8,13 +8,13 @@ type PageNumsProps = {
 };
 
 function PageNums({ numPages }: PageNumsProps) {
-  const { pageNum, setPageNum } = usePageNum();
+  const { pageNum } = usePageNum();
 
   const nextPagesStyles =
     numPages - pageNum > 3 ? "justify-between" : "justify-end";
 
   return (
-    <div className="flex justify-between items-center w-full gap-3">
+    <div className="flex justify-between items-center w-full gap-3 mt-12 md:mt-0">
       <div className="flex justify-between gap-3 basis-full">
         {pageNum !== 1 && <PageTextLink page={pageNum - 1} text="Prev" />}
         <div className="hidden gap-3 md:flex">

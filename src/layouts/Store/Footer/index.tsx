@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import Logo from "../Logo";
+import Logo from "../../../components/Logo";
 import FooterSocials from "./FooterSocials";
 import FooterInfoLinks from "./FooterInfoLinks";
 import FooterDropdown from "./FooterDropdown";
 
-function StoreFooter() {
+function Footer() {
   return (
     <footer className="w-full border-t border-black">
-      <div className="grid grid-cols-1 md:grid-cols-[15rem_max-content_auto] md:grid-rows-[auto_24px] gap-4 md:gap-9 px-6 py-12 md:p-12 w-full max-w-screen-lg justify-items-center md:justify-items-start">
-        <a href="/" className="w-56 md:w-full">
+      <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-[auto_24px] gap-4 md:gap-x-9 px-6 py-12 md:p-12 w-full max-w-screen-lg justify-items-center md:justify-items-start">
+        <a href="/" className="max-w-40 md:w-full">
           <Logo />
         </a>
 
@@ -31,4 +31,4 @@ function StoreFooter() {
   );
 }
 
-export default StoreFooter;
+export default Footer;

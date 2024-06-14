@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import MenuButton from "./MenuButton";
-import Logo from "../Logo";
-import CartLink from "../CartLink";
+import Logo from "../../../components/Logo";
+import CartLink from "../../../components/CartLink";
 
-type StoreHeaderProps = {
+type HeaderProps = {
   scrollingUp: boolean;
 };
 
-function StoreHeader({ scrollingUp }: StoreHeaderProps) {
+function Header({ scrollingUp }: HeaderProps) {
   // Add class to make header fixed if user starts scrolling up
   let classNames =
     "border-b border-black fixed md:static z-10 bg-white flex w-full justify-between items-center p-6 h-[60px]";
@@ -29,4 +29,4 @@ function StoreHeader({ scrollingUp }: StoreHeaderProps) {
   );
 }
 
-export default StoreHeader;
+export default Header;

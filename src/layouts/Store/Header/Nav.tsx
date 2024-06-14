@@ -1,9 +1,9 @@
 import { useContext, useRef } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { MenuContext } from "../../../context/MenuContext";
 import { Link } from "react-router-dom";
-import { useMenuDropdown } from "../../hooks/useMenuDropdown";
+import { useMenuDropdown } from "../../../hooks/useMenuDropdown";
 import ShopByTypeDropdown from "./ShopByTypeDropdown";
-import ForwardArrowSVG from "../../svgs/ForwardArrowSVG";
+import ForwardArrowSVG from "../../../components/svgs/ForwardArrowSVG";
 
 function Nav() {
   const { menuOpen } = useContext(MenuContext);

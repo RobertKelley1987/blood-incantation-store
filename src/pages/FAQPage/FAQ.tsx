@@ -1,6 +1,6 @@
 import { useState } from "react";
-import MinusSVG from "../../svgs/MinusSVG";
-import PlusSVG from "../../svgs/PlusSVG";
+import MinusSVG from "../../components/svgs/MinusSVG";
+import PlusSVG from "../../components/svgs/PlusSVG";
 import type { QAndA } from "../../types";
 
 type FAQProps = {

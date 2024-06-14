@@ -1,6 +1,6 @@
 import NavListItem from "./NavListItem";
-import BackArrowSVG from "../../svgs/BackArrowSVG";
-import { PRODUCT_CATEGORIES } from "../../constants";
+import BackArrowSVG from "../../../components/svgs/BackArrowSVG";
+import { PRODUCT_CATEGORIES } from "../../../constants";
 
 type ShopByTypeDropdownProps = {
   setDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;

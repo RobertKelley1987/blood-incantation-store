@@ -2,7 +2,7 @@ import { useProductTypes } from "../../hooks/useProductTypes";
 import { useDropdownWithResize } from "../../hooks/useDropdownWithResize";
 import { PRODUCT_CATEGORIES } from "../../constants";
 import CategoryCheckbox from "./CategoryCheckbox";
-import ChevronSVG from "../../svgs/ChevronSVG";
+import ChevronSVG from "../../components/svgs/ChevronSVG";
 import { ProductType } from "../../types";
 
 type ProductsFilterProps = {

@@ -1,7 +1,7 @@
-import FacebookSVG from "../../svgs/FacebookSVG";
-import InstagramSVG from "../../svgs/InstagramSVG";
-import SpotifySVG from "../../svgs/SpotifySVG";
-import YoutubeSVG from "../../svgs/YoutubeSVG";
+import FacebookSVG from "../../../components/svgs/FacebookSVG";
+import InstagramSVG from "../../../components/svgs/InstagramSVG";
+import SpotifySVG from "../../../components/svgs/SpotifySVG";
+import YoutubeSVG from "../../../components/svgs/YoutubeSVG";
 
 function FooterSocials() {
   return (

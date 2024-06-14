@@ -3,7 +3,7 @@ import LinkButton from "../components/LinkButton";
 
 function OrderErrorPage() {
   return (
-    <main className="flex flex-col justify-center items-center grow gap-6">
+    <main className="flex flex-col justify-center items-center grow gap-6 px-6 sm:px-12">
       <div className="flex flex-col gap-1">
         <p className="text-center">
           We received your payment but there was an error processing your order.

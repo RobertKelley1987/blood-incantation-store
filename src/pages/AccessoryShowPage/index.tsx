@@ -1,6 +1,6 @@
 import { useProduct } from "../../hooks/useProduct";
 import { accessories } from "../../db";
-import ShowPage from "../ShowPage/ShowPage";
+import ShowPage from "../ShowPage";
 import AccessoryDescription from "./AccessoryDescription";
 import ProductErrorPage from "../ProductErrorPage";
 import ErrorBoundary from "../../components/ErrorBoundary";

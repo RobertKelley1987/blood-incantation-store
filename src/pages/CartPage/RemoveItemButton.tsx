@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import XSVG from "../../svgs/XSVG";
+import XSVG from "../../components/svgs/XSVG";
 import { Apparel, Music, Accessory, Size } from "../../types";
 
 type RemoveItemButtonProps = {

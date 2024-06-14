@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { useScrollingUp } from "../hooks/useScrollingUp";
-import { useLocalCart } from "../hooks/useLocalCart";
-import { MenuContext } from "../context/MenuContext";
-import StoreHeader from "./StoreHeader/StoreHeader";
-import StoreFooter from "./StoreFooter/StoreFooter";
+import { useScrollingUp } from "../../hooks/useScrollingUp";
+import { useLocalCart } from "../../hooks/useLocalCart";
+import { MenuContext } from "../../context/MenuContext";
+import StoreHeader from "./Header";
+import StoreFooter from "./Footer";
 
 function Store() {
   const { menuOpen } = useContext(MenuContext);

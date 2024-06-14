@@ -1,6 +1,6 @@
 import { useSortBy } from "../../hooks/useSortBy";
 import { isSortOptionType } from "../../utils/assertions";
-import ChevronSVG from "../../svgs/ChevronSVG";
+import ChevronSVG from "../../components/svgs/ChevronSVG";
 import type { SortOption } from "../../types";
 
 type SortOptionElement = {
