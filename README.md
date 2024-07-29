@@ -21,8 +21,9 @@ and the Stripe API. This is also my first project hosted on AWS, which I hope to
 learn more about on future projects.
 
 For developers working on similar Stripe integrations, I wish I knew ahead of time
-how tricky / limiting the styling of the Stripe forms can be. Matching the styles
-of my own forms to the form options Stripe offers was very time consuming.
+how tricky / limiting the styling of Stripe forms can be. Without a lot of
+control via CSS, I spent a lot of time modifying my own forms to match Stripe's
+available styles.
 
 ![Site screenshot](screenshot.png)
 
