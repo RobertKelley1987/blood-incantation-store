@@ -9,7 +9,7 @@
 
 ## Overview
 
-![Site screenshot](screenshot.png);
+![Site screenshot](screenshot.png)
 
 [Live Demo](https://fakebloodstore.xyz)
 
