@@ -1,4 +1,4 @@
-# Name of Project
+# Blood Incantation Web Store
 
 ## Table of Contents
 
