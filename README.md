@@ -28,24 +28,24 @@ of my own forms to the form options Stripe offers was very time consuming.
 
 ### Built With
 
-[React](https://react.dev/)
-[TypeScript](https://www.typescriptlang.org/)
-[Tailwind](https://www.tailwindcss.com)
-[Stripe](https://www.stripe.com)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind](https://www.tailwindcss.com)
+- [Stripe](https://www.stripe.com)
 
 ## Features
 
-1. All Items Page - Users can sort all items by name or date and filter by product type.
-   If the filter produces more than 12 items the displayed items are paginated.
-2. Product Type Pages - Users can also navigate via product type pages in the header.
-   These pages filter items by the specified product type, ex: "Longsleeves" page only shows
-   longsleeve shirts.
-3. Cart - User's cart is saved in local storage in case they navigate to a different site.
-   Item quantities can be updated via the Cart Page before checkout.
-4. Stripe Checkout - Users can pay via credit card using the Stripe API. The Stripe account
-   remains in "test mode" so that payments are not actually processed. An email with all
-   order data is sent to an admin email account on each successful order.
-5. Contact Form - Contact form uses AWS SES to send emails to an admin email account.
+- All Items Page - Users can sort all items by name or date and filter by product type.
+  If the filter produces more than 12 items the displayed items are paginated.
+- Product Type Pages - Users can also navigate via product type pages in the header.
+  These pages filter items by the specified product type, ex: "Longsleeves" page only shows
+  longsleeve shirts.
+- Cart - User's cart is saved in local storage in case they navigate to a different site.
+  Item quantities can be updated via the Cart Page before checkout.
+- Stripe Checkout - Users can pay via credit card using the Stripe API. The Stripe account
+  remains in "test mode" so that payments are not actually processed. An email with all
+  order data is sent to an admin email account on each successful order.
+- Contact Form - Contact form uses AWS SES to send emails to an admin email account.
 
 ## Acknowledgements
 
