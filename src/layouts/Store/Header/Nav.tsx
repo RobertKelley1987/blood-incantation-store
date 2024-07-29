@@ -15,7 +15,7 @@ function Nav() {
     <nav
       className={`${leftPosition} top-0 bg-white w-screen md:w-auto h-screen md:h-auto flex fixed md:static md:z-0`}
     >
-      <ul className="p-6 md:p-0 font-sans uppercase font-semibold text-4xl md:text-base flex flex-col md:flex-row mt-[60px] md:mt-0 gap-6 md:gap-12">
+      <ul className="p-6 pt-1 md:p-0 font-sans uppercase font-semibold text-3xl md:text-base flex flex-col md:flex-row mt-[60px] md:mt-0 gap-6 md:gap-12">
         <li>
           <Link to="/collections/all" className="hover:text-blood">
             Shop All

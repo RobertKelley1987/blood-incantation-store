@@ -28,7 +28,7 @@ function CartPage() {
 
   return (
     <div className="w-full max-w-screen-lg flex flex-col px-6 sm:px-12">
-      <h1 className="text-5xl sm:text-7xl font-semibold text-center mb-12">
+      <h1 className="text-4xl sm:text-7xl font-semibold text-center mb-12">
         CART
       </h1>
       {state.totalQty < 1 ? <EmptyCartMessage /> : renderCartPage()}

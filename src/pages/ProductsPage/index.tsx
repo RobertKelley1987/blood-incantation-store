@@ -35,7 +35,7 @@ function ProductsPage({ headingText }: ProductsPageProps) {
 
   return (
     <div className="flex flex-col basis-full px-6 sm:px-12 items-end w-full max-w-screen-lg md:gap-12">
-      <h1 className="w-full text-5xl sm:text-7xl font-semibold text-center uppercase mb-6 md:mb-0">
+      <h1 className="w-full text-4xl sm:text-7xl font-semibold text-center uppercase mb-6 md:mb-0">
         {collection ? collection : headingText}
       </h1>
       {!isLoading ? renderProductsPage() : <p>Loading...</p>}

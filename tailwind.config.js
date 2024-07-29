@@ -13,6 +13,10 @@ module.exports = {
       fontFamily: {
         sans: ['"Public Sans", sans-serif'],
       },
+      fontSize: {
+        "3xl": "1.875rem",
+        "4xl": "2.625rem",
+      },
       colors: {
         blood: "rgb(230, 35, 49)",
         lightGrey: "rgb(230,230,230)",

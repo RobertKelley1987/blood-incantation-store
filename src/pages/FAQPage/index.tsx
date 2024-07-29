@@ -47,7 +47,7 @@ const FAQS: QAndA[] = [
 function FAQPage() {
   return (
     <div className="flex flex-col gap-6 basis-full w-full max-w-screen-lg px-6 sm:px-12">
-      <h1 className="font-semibold uppercase text-5xl sm:text-7xl">FAQs</h1>
+      <h1 className="font-semibold uppercase text-4xl sm:text-7xl">FAQs</h1>
       <div className="flex flex-col">
         {FAQS.map((faq) => (
           <FAQ faq={faq} />

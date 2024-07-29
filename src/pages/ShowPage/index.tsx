@@ -37,7 +37,7 @@ function ShowPage<T extends Apparel | Music | Accessory>({
             productName={productName}
             productType={productType}
           />
-          <p className="text-2xl">${price}</p>
+          <p className="text-xl sm:text-2xl">${price}</p>
           {/* Optional element for product options, like size for shirts or color for vinyl */}
           {options}
           <div className="w-fit flex flex-col gap-6 w-full md:w-min">

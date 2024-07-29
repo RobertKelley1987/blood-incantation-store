@@ -13,8 +13,8 @@ function HomePageSection({ products, collection }: HomePageSectionProps) {
 
   return (
     <section className="flex flex-col gap-12 items-center">
-      <Link to="/collections/vinyl" className="hover:text-blood">
-        <h1 className="w-full text-5xl sm:text-7xl font-semibold text-center uppercase">
+      <Link to={`/collections/${slug}`} className="hover:text-blood">
+        <h1 className="w-full text-4xl sm:text-7xl font-semibold text-center uppercase">
           {collection}
         </h1>
       </Link>

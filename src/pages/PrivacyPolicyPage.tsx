@@ -8,7 +8,7 @@ function PrivacyPolicyPage() {
 
   return (
     <main className="flex flex-col gap-6 w-full px-6 sm:px-12">
-      <h1 className="uppercase font-semibold text-5xl sm:text-7xl">
+      <h1 className="uppercase font-semibold text-4xl sm:text-7xl">
         Privacy Policy
       </h1>
 

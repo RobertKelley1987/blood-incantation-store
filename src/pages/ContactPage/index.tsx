@@ -7,8 +7,8 @@ function ContactPage() {
   const [messageId, setMessageId] = useState("");
 
   return (
-    <div className="flex flex-col gap-12 w-full max-w-screen-sm px-6 sm:px-12">
-      <h1 className="w-full text-5xl sm:text-7xl font-semibold text-center uppercase">
+    <div className="flex flex-col gap-6 sm:gap-12 w-full max-w-screen-sm px-6 sm:px-12">
+      <h1 className="w-full text-4xl sm:text-7xl font-semibold text-center uppercase">
         Contact
       </h1>
       {messageId ? (

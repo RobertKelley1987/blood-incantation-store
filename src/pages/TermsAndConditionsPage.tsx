@@ -1,7 +1,7 @@
 function TermsAndConditionsPage() {
   return (
     <main className="flex flex-col gap-6 w-full px-6 sm:px-12 max-w-screen-lg">
-      <h1 className="uppercase font-semibold text-5xl sm:text-7xl">
+      <h1 className="uppercase font-semibold text-4xl sm:text-7xl">
         Terms and Conditions
       </h1>
 

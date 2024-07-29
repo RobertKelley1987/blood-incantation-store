@@ -9,6 +9,8 @@
 
 ## Overview
 
+![Site screenshot](screenshot.png);
+
 [Live Demo](https://fakebloodstore.xyz)
 
 I was looking for a project to practice using TypeScript with React, and my

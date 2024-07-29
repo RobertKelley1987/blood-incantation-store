@@ -3,7 +3,7 @@ import LinkButton from "../components/LinkButton";
 function NotFoundPage() {
   return (
     <main className="flex flex-col justify-center items-center grow gap-6 px-6 sm:px-12">
-      <h1 className="w-full text-5xl sm:text-7xl font-semibold text-center uppercase">
+      <h1 className="w-full text-4xl sm:text-7xl font-semibold text-center uppercase">
         404
       </h1>
       <p className="text-center">
