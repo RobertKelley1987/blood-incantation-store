@@ -1,7 +1,5 @@
 # Blood Incantation Web Store
 
-![Site screenshot](screenshot.png)
-
 ## Table of Contents
 
 - [Overview](#overview)
@@ -25,6 +23,8 @@ learn more about on future projects.
 For developers working on similar Stripe integrations, I wish I knew ahead of time
 how tricky / limiting the styling of the Stripe forms can be. Matching the styles
 of my own forms to the form options Stripe offers was very time consuming.
+
+![Site screenshot](screenshot.png)
 
 ### Built With
 
