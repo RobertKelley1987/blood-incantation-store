@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../hooks/useCart";
 import XSVG from "../../components/svgs/XSVG";
 import { Apparel, Music, Accessory, Size } from "../../types";
 
@@ -9,7 +8,7 @@ type RemoveItemButtonProps = {
   size?: Size;
 };
 function RemoveItemButton({ product, qty, size }: RemoveItemButtonProps) {
-  const { dispatch } = useContext(CartContext);
+  const { dispatch } = useCart();
 
   const handleClick = () =>
     dispatch({ type: "REMOVE_ITEM", product, qty, size });

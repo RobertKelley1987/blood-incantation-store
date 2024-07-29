@@ -1,6 +1,5 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
 import { useAddToCartMessage } from "../../hooks/useAddToCartMessage";
+import { useCart } from "../../hooks/useCart";
 import type { Accessory, Apparel, Music, Size } from "../../types";
 
 type AddToCartButtonProps = {
@@ -10,7 +9,7 @@ type AddToCartButtonProps = {
 };
 
 function AddToCartButton({ product, qty, size }: AddToCartButtonProps) {
-  const { dispatch } = useContext(CartContext);
+  const { dispatch } = useCart();
   const { displayMessage, setDisplayMessage } = useAddToCartMessage();
 
   const handleClick = () => {

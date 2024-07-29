@@ -15,6 +15,7 @@ function ShippingMethod() {
         {SHIPPING_OPTIONS.map((option) => {
           return (
             <label
+              key={option.name}
               htmlFor={option.name}
               className="w-full flex justify-between p-3 hover:cursor-pointer"
             >

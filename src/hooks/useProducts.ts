@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { allProducts } from "../db";
-import { COMPARE_FNS } from "../constants";
-import { isProductTypeArr } from "../utils/assertions";
-import type { Product } from "../types";
 import { useSortBy } from "./useSortBy";
 import { useProductTypes } from "./useProductTypes";
+import { COMPARE_FNS } from "../constants";
+import type { Product } from "../types";
 
 // Hook to fetch a group of products using a collection name from the current
 // url.
@@ -43,8 +42,6 @@ export function useProducts() {
 
   // Reset sort option to default when user navigates to another collection
   useEffect(() => setSortBy("New to Old"), [collection]);
-
-  isProductTypeArr(productTypes);
 
   return {
     collection,

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   LinkAuthenticationElement,
@@ -7,7 +7,7 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../hooks/useCart";
 import { orders } from "../../services/orders";
 import ShippingMethod from "./ShippingMethod";
 import type { ShippingAddress } from "../../types";
@@ -16,7 +16,7 @@ function CheckoutForm() {
   const [email, setEmail] = useState("");
   const [shippingAddress, setShippingAddress] =
     useState<ShippingAddress | null>(null);
-  const { state, dispatch } = useContext(CartContext);
+  const { state, dispatch } = useCart();
   const items = state.items;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -75,7 +75,7 @@ function CheckoutForm() {
     return (
       <form
         onSubmit={handleSubmit}
-        className="order-2 md:order-1 w-full flex flex-col gap-6 p-6 md:pl-12 md:pr-6 md:pt-12"
+        className="order-2 md:order-1 w-full flex flex-col gap-6 p-6 md:pl-12 md:py-12"
       >
         <section>
           <h2 className="mb-3 font-semibold uppercase">Contact</h2>

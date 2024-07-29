@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../hooks/useCart";
 import CartItem from "./CartItem";
 import EmptyCartMessage from "./EmptyCartMessage";
 import LinkButton from "../../components/LinkButton";
 
 function CartPage() {
-  const { state } = useContext(CartContext);
+  const { state } = useCart();
 
   const renderCartPage = () => {
     return (

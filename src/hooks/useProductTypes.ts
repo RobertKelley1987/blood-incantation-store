@@ -12,6 +12,7 @@ export function useProductTypes() {
   for (const productType of productTypes) {
     if (!PRODUCT_TYPES.includes(productType)) {
       setProductTypes(null);
+      break;
     }
   }
 

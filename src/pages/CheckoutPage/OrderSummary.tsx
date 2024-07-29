@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ShippingContext } from "../../context/ShippingContext";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../hooks/useCart";
 import OrderSummaryItem from "./OrderSummaryItem";
 
 const borderStyles = "border-b border-solid border-black md:border-none";
@@ -8,7 +8,7 @@ const paddingStyles = "p-6 md:pr-12 md:pl-6 md:pt-12";
 
 function OrderSummary() {
   const shipping = useContext(ShippingContext).shippingMethod.cost;
-  const { items, totalValue } = useContext(CartContext).state;
+  const { items, totalValue } = useCart().state;
   const totalDue = totalValue + shipping;
 
   return (

@@ -3,20 +3,22 @@ import type { ItemAndQty } from "../types";
 
 export const pmtIntents = {
   create: async (items: ItemAndQty[], shippingCost: number) => {
-    return await api.post("/pmt-intents", {
+    const { data } = await api.post("/pmt-intents", {
       items,
       shippingCost,
     });
+    return data;
   },
   update: async (
     pmtIntentId: string,
     items: ItemAndQty[],
     shipping: number
   ) => {
-    return await api.put("/pmt-intents", {
+    const { data } = await api.put("/pmt-intents", {
       pmtIntentId,
       items,
       shipping,
     });
+    return data;
   },
 };

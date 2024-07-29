@@ -2,14 +2,14 @@ import { useState } from "react";
 import { contact } from "../../services/contact";
 import TextInput from "./TextInput";
 import Message from "./Message";
-import type { FormEvent } from "react";
+import type { Dispatch, FormEvent, SetStateAction } from "react";
 import type {
   ContactFormData,
   ContactForm as ContactFormType,
 } from "../../types";
 
 type ContactFormProps = {
-  setMessageId: React.Dispatch<React.SetStateAction<string>>;
+  setMessageId: Dispatch<SetStateAction<string>>;
 };
 
 const DEFAULT_FORM = {
@@ -32,7 +32,7 @@ const DEFAULT_FORM = {
 };
 
 function ContactForm({ setMessageId }: ContactFormProps) {
-  const [serverError, setServerError] = useState("");
+  const [serverError, setServerError] = useState(false);
   const [form, setForm] = useState<ContactFormType>(DEFAULT_FORM);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -40,8 +40,8 @@ function ContactForm({ setMessageId }: ContactFormProps) {
     e.preventDefault();
     setIsLoading(true);
 
-    // Flag tracking presence of errs
-    let doNotSubmit = false;
+    // Flag tracking if form has errors
+    let hasErrors = false;
 
     // Set error message for missing fields
     const updated = { ...form };
@@ -49,13 +49,13 @@ function ContactForm({ setMessageId }: ContactFormProps) {
     for (j in updated) {
       if (!updated[j].value) {
         updated[j].error = "This field is required.";
-        doNotSubmit = true;
+        hasErrors = true;
       }
     }
     setForm(updated);
 
     // Do not submit a form with errors
-    if (doNotSubmit) {
+    if (hasErrors) {
       setIsLoading(false);
       return;
     }
@@ -66,11 +66,10 @@ function ContactForm({ setMessageId }: ContactFormProps) {
     for (k in form) {
       finalForm[k] = form[k].value;
     }
-    const { data } = await contact.sendMail(finalForm);
-    const { error, id } = data;
+    const { id } = await contact.sendMail(finalForm);
 
-    if (error) {
-      setServerError(error);
+    if (!id) {
+      setServerError(true);
     } else {
       setMessageId(id);
     }

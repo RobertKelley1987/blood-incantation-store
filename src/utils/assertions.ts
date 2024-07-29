@@ -20,22 +20,3 @@ export function isSortOptionType(sortOption: string): sortOption is SortOption {
     return true;
   }
 }
-
-// Helper to confirm whether string array is composed of ProductType values.
-export function isProductTypeArr(productTypes: string[]) {
-  let assertionFailed = false;
-  let i = 0;
-
-  while (!assertionFailed && i < productTypes.length) {
-    if (!PRODUCT_TYPES.includes(productTypes[i])) {
-      assertionFailed = true;
-    }
-    i++;
-  }
-
-  if (assertionFailed) {
-    throw new Error("Value must be an array of type ProductType.");
-  } else {
-    return true;
-  }
-}

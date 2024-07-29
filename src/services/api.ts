@@ -1,8 +1,9 @@
 import axios from "axios";
 
-let baseURL = "http://ec2-18-191-228-177.us-east-2.compute.amazonaws.com/";
+// DEV API
+const baseURL = "/";
 
-export const api = axios.create({
-  baseURL,
-  withCredentials: true,
-});
+// PRODUCTION API
+// const baseURL = "https://server.fakebloodstore.xyz";
+
+export const api = axios.create({ baseURL });

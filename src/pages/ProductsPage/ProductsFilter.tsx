@@ -3,12 +3,6 @@ import { useDropdownWithResize } from "../../hooks/useDropdownWithResize";
 import { PRODUCT_CATEGORIES } from "../../constants";
 import CategoryCheckbox from "./CategoryCheckbox";
 import ChevronSVG from "../../components/svgs/ChevronSVG";
-import { ProductType } from "../../types";
-
-type ProductsFilterProps = {
-  productTypes: ProductType[];
-  setProductTypes: (productTypes: ProductType[]) => void;
-};
 
 function ProductsFilter() {
   const { productTypes, setProductTypes } = useProductTypes();

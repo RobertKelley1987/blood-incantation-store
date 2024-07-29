@@ -1,8 +1,5 @@
-import { useContext } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { ShippingContext } from "../../context/ShippingContext";
-import { CartContext } from "../../context/CartContext";
 import { useCreatePmtIntent } from "../../hooks/useCreatePmtIntent";
 import { useUpdatePmtIntent } from "../../hooks/useUpdatePmtIntent";
 import CheckoutForm from "./CheckoutForm";
@@ -14,10 +11,8 @@ const stripePromise = loadStripe(
 );
 
 function Checkout() {
-  const { items } = useContext(CartContext).state;
-  const shipping = useContext(ShippingContext).shippingMethod.cost;
-  const { clientSecret, pmtIntentId } = useCreatePmtIntent(items, shipping);
-  useUpdatePmtIntent(items, shipping, pmtIntentId);
+  const { clientSecret, pmtIntentId, isLoading } = useCreatePmtIntent();
+  useUpdatePmtIntent(pmtIntentId);
 
   const options: StripeElementsOptions = {
     clientSecret,
@@ -53,7 +48,11 @@ function Checkout() {
     );
   };
 
-  return clientSecret ? renderElements(options) : null;
+  return isLoading ? (
+    <p className="p-6 md:pl-12 md:py-12">Loading...</p>
+  ) : (
+    renderElements(options)
+  );
 }
 
 export default Checkout;

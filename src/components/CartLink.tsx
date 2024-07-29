@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
+import { useCart } from "../hooks/useCart";
 import CartSVG from "./svgs/CartSVG";
 
 // Cart link with bag svg and number of cart items
@@ -9,7 +8,7 @@ type CartLinkProps = {
 };
 
 function CartLink({ className }: CartLinkProps) {
-  const { totalQty } = useContext(CartContext).state;
+  const { totalQty } = useCart().state;
 
   // Add additional class names
   let classNames = "flex gap-2 hover:text-blood";

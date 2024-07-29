@@ -12,7 +12,6 @@ export function paginate(products: Product[]) {
 
   while (i < products.length) {
     if (page.length === ITEMS_PER_PG) {
-      console.log(page);
       pages.push(page);
       page = [];
     }

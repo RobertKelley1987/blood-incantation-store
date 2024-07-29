@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../hooks/useCart";
 import { MAX_ITEM_QTY } from "../../constants";
 import ProductQty from "../../components/ProductQty";
 import type { Accessory, Apparel, Music, Size } from "../../types";
@@ -11,7 +10,7 @@ type CartItemQtyProps = {
 };
 
 function CartItemQty({ product, qty, size }: CartItemQtyProps) {
-  const { dispatch } = useContext(CartContext);
+  const { dispatch } = useCart();
 
   const increment = () =>
     qty < MAX_ITEM_QTY &&

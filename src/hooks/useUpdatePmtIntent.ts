@@ -1,18 +1,18 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { ShippingContext } from "../context/ShippingContext";
+import { useCart } from "./useCart";
 import { pmtIntents } from "../services/pmt-intents";
-import { CartItem } from "../types";
 
 // Hook to update the shipping cost of pmt intent in Stripe.
-export function useUpdatePmtIntent(
-  cartItems: CartItem[],
-  shipping: number,
-  pmtIntentId: string
-) {
+// Payment intent id must be provided as arg.
+export function useUpdatePmtIntent(pmtIntentId: string) {
+  const { items } = useCart().state;
+  const shipping = useContext(ShippingContext).shippingMethod.cost;
   const navigate = useNavigate();
 
   // Provide ids and qtys of cart items for price lookup in backend.
-  const items = cartItems.map((item) => {
+  const cartItems = items.map((item) => {
     return { id: item.product.id, qty: item.qty };
   });
 
@@ -23,12 +23,9 @@ export function useUpdatePmtIntent(
     }
 
     const updatePmtIntent = async () => {
-      const {
-        data: { error },
-      } = await pmtIntents.update(pmtIntentId, items, shipping);
-
-      // Navigate to server error page if update fails.
-      if (error) {
+      try {
+        await pmtIntents.update(pmtIntentId, cartItems, shipping);
+      } catch (error) {
         navigate("/checkout/error");
       }
     };

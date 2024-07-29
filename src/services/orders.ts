@@ -7,6 +7,7 @@ export const orders = {
     shipping: ShippingAddress,
     items: CartItem[]
   ) => {
-    return await api.post("/orders", { email, shipping, items });
+    const { data } = await api.post("/orders", { email, shipping, items });
+    return data;
   },
 };

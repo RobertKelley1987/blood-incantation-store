@@ -11,14 +11,7 @@ type CartContextProviderProps = {
   children: React.ReactNode;
 };
 
-export const CartContext = createContext<CartContextType>({
-  state: {
-    items: [],
-    totalQty: 0,
-    totalValue: 0,
-  },
-  dispatch: () => null,
-});
+export const CartContext = createContext<CartContextType | null>(null);
 
 function CartContextProvider({ children }: CartContextProviderProps) {
   const [state, dispatch] = useReducer(cartReducer, {
@@ -26,6 +19,13 @@ function CartContextProvider({ children }: CartContextProviderProps) {
     totalQty: 0,
     totalValue: 0,
   });
+
+  // Update state with local cart
+  const storedCartJSON = localStorage.getItem("blood-cart");
+  if (storedCartJSON && state.items.length < 1) {
+    const storedCart = JSON.parse(storedCartJSON);
+    dispatch({ type: "SET_CART", items: storedCart });
+  }
 
   return (
     <CartContext.Provider value={{ state, dispatch }}>
