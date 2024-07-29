@@ -1,6 +1,6 @@
 # Blood Incantation Web Store
 
-[Site screenshot](screenshot.png)s
+![Site screenshot](screenshot.png)
 
 ## Table of Contents
 
