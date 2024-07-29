@@ -1,5 +1,7 @@
 # Blood Incantation Web Store
 
+[Site screenshot](screenshot.png)s
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -8,8 +10,6 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Overview
-
-![Site screenshot](screenshot.png)
 
 [Live Demo](https://fakebloodstore.xyz)
 
