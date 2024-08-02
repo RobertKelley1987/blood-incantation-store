@@ -21,7 +21,7 @@ function HomePageSection({ products, collection }: HomePageSectionProps) {
 
       <Products products={products} />
       <LinkButton
-        to={`/collections/${slug}`}
+        to={`/collections/${slug}?sortBy=New+to+Old`}
         text={`Shop All ${collection}`}
         grow={false}
       />

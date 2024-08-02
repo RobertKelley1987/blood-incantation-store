@@ -5,7 +5,6 @@ import Products from "./Products";
 import ProductsFilter from "./ProductsFilter";
 import SortSelector from "./SortSelector";
 import PageNums from "./PageNums";
-import { Fragment } from "react/jsx-runtime";
 
 type ProductsPageProps = {
   headingText?: string;
@@ -18,7 +17,7 @@ function ProductsPage({ headingText }: ProductsPageProps) {
 
   const renderProductsPage = () => {
     return (
-      <Fragment>
+      <>
         <SortSelector />
         <div
           className={`flex flex-col md:flex-row shrink-0 gap-6 w-full ${
@@ -29,7 +28,7 @@ function ProductsPage({ headingText }: ProductsPageProps) {
           <Products products={pages[pageNum - 1]} />
         </div>
         {pages.length > 1 && <PageNums numPages={pages.length} />}
-      </Fragment>
+      </>
     );
   };
 

@@ -31,7 +31,7 @@ available styles.
 
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind](https://www.tailwindcss.com)
+- [Tailwind CSS](https://www.tailwindcss.com)
 - [Stripe](https://www.stripe.com)
 
 ## Features

@@ -12,7 +12,7 @@ export function useProducts() {
   const [products, setProducts] = useState<Product[]>(allProducts);
   const [isLoading, setIsLoading] = useState(true);
   const { collection } = useParams();
-  const { sortBy, setSortBy } = useSortBy();
+  const { sortBy } = useSortBy();
   const { productTypes } = useProductTypes();
   const [query] = useSearchParams();
 
@@ -33,15 +33,13 @@ export function useProducts() {
     }
 
     // Sort products by selected sort option
-    const compareFn = COMPARE_FNS[sortBy];
+    const sortOption = sortBy ? sortBy : "New to Old";
+    const compareFn = COMPARE_FNS[sortOption];
     const sorted = [...filtered.sort(compareFn)];
     setProducts(sorted);
 
     setIsLoading(false);
   }, [collection, query]);
-
-  // Reset sort option to default when user navigates to another collection
-  useEffect(() => setSortBy("New to Old"), [collection]);
 
   return {
     collection,
