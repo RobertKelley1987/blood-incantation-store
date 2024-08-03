@@ -14,11 +14,10 @@ function TermsAndConditionsPage() {
         </p>
 
         <p>
-          These terms and conditions govern the use of
-          bloodincantationstore.com. This site is owned and operated by Robert
-          Kelley. By using this site, you indicate that you have read and
-          understand these terms and conditions and agree to abide by them at
-          all times.
+          These terms and conditions govern the use of fakebloodstore.xyz. This
+          site is owned and operated by Robert Kelley. By using this site, you
+          indicate that you have read and understand these terms and conditions
+          and agree to abide by them at all times.
         </p>
       </section>
 
@@ -246,11 +245,11 @@ function TermsAndConditionsPage() {
           <p>Please contact us if you have any questions or concerns:</p>
 
           <div className="flex flex-col">
-            <span className="">Blood Incantation Store</span>
+            <span className="">Blood Incantation Web Store</span>
             <span>123 Fake Street</span>
             <span>Littleton, MA 01460</span>
             <span>(800) 555-1234</span>
-            <span>info@bloodincantationstore.com</span>
+            <span>info@fakebloodstore.xyz</span>
           </div>
         </div>
       </section>

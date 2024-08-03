@@ -1,4 +1,4 @@
-import type { Product, Apparel, Music, Accessory } from "../types";
+import type { Apparel, Music, Accessory } from "../types";
 
 export const tShirts: Apparel[] = [
   {

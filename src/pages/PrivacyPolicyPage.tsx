@@ -14,8 +14,8 @@ function PrivacyPolicyPage() {
 
       <section className="flex flex-col gap-3">
         <p>
-          Blood Incantation operates the www.bloodincantationstore.com website,
-          which provides the SERVICE.
+          Robert Kelley operates the fakebloodstore.xyz website, which provides
+          the SERVICE.
         </p>
 
         <p>
@@ -34,9 +34,8 @@ function PrivacyPolicyPage() {
 
         <p>
           The terms used in this Privacy Policy have the same meanings as in our
-          Terms and Conditions, which is accessible at
-          www.bloodincantationstore.com, unless otherwise defined in this
-          Privacy Policy.
+          Terms and Conditions, which is accessible at fakebloodstore.xyz,
+          unless otherwise defined in this Privacy Policy.
         </p>
       </section>
 

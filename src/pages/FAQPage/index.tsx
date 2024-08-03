@@ -19,7 +19,7 @@ const FAQS: QAndA[] = [
     answer:
       "We can refund your purchase if we receieve the item within 30 days" +
       " of your original purchase. Items must be free of damage, and apparel items" +
-      " must be clean and unworn. Please send all returns to Blood Incantation Store" +
+      " must be clean and unworn. Please send all returns to Blood Incantation Web Store" +
       " Returns Office, 123 Fake Street, Littleton, MA 01460.",
   },
   {
