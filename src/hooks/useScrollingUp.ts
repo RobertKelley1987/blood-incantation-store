@@ -7,11 +7,8 @@ export function useScrollingUp() {
 
   useEffect(() => {
     function handleScroll(e: Event) {
-      if (prevYOffset.current > window.scrollY) {
-        setScrollingUp(true);
-      } else {
-        setScrollingUp(false);
-      }
+      const isScrollingUp = prevYOffset.current > window.scrollY;
+      setScrollingUp(isScrollingUp);
       prevYOffset.current = window.scrollY;
     }
 

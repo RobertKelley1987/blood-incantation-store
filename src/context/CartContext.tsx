@@ -1,10 +1,11 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import type { State, Action } from "../reducers/types";
 import { cartReducer } from "../reducers/cartReducer";
 
 type CartContextType = {
   state: State;
   dispatch: React.Dispatch<Action>;
+  isLoading: boolean;
 };
 
 type CartContextProviderProps = {
@@ -19,16 +20,20 @@ function CartContextProvider({ children }: CartContextProviderProps) {
     totalQty: 0,
     totalValue: 0,
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   // Update state with local cart
-  const storedCartJSON = localStorage.getItem("blood-cart");
-  if (storedCartJSON && state.items.length < 1) {
-    const storedCart = JSON.parse(storedCartJSON);
-    dispatch({ type: "SET_CART", items: storedCart });
-  }
+  useEffect(() => {
+    const storedCartJSON = localStorage.getItem("blood-cart");
+    if (storedCartJSON && state.items.length < 1) {
+      const storedCart = JSON.parse(storedCartJSON);
+      dispatch({ type: "SET_CART", items: storedCart });
+    }
+    setIsLoading(false);
+  }, []);
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider value={{ state, dispatch, isLoading }}>
       {children}
     </CartContext.Provider>
   );
